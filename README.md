@@ -1,23 +1,17 @@
 # flake + home-manager NixOS configurations
 
 Home managing with [home-manager](https://github.com/nix-community/home-manager)  
-Secrets managing with [agenix](https://github.com/ryantm/agenix)  
-
 
 ## Usage
 __Before deployment, customizing `hardware.nix` and `network.nix`  in `./hosts/`__
 
-You can replace hostname globally with:    
-```console  
-sed -i "s/hastur/YOUR_HOSTNAME/g" `rg -rl "hastur" ./`  
-```
-
 flake outputs:  
 
 ```console
-> nix flake show github:oluceps/nixos-config
-github:oluceps/nixos-config/d60a21a4d40a779f40b484bb9ef2445372bbfe34
+> nix flake show github:frnkpsycho/nixos-config
+github:frnkpsycho/nixos-config/22337a8c53fcb31eb9c5109b67bed9ed4fdc1269
 └───nixosConfigurations
+    ├───frnks: NixOS configuration
     ├───hastur: NixOS configuration
     └───kaambl: NixOS configuration
 ```  
@@ -25,15 +19,13 @@ github:oluceps/nixos-config/d60a21a4d40a779f40b484bb9ef2445372bbfe34
 ### NixOS Deployment
 
 ```console
-nixos-rebuild switch --flake github:oluceps/nixos-config#hastur
+nixos-rebuild switch --flake github:frnkpsycho/nixos-config#frnks
   
 ```
 |Type|Program|
 |---|---|
 |Editor|[helix](https://github.com/oluceps/nixos-config/tree/pub/home/programs/helix)|
-|WM|[sway](https://github.com/oluceps/nixos-config/tree/pub/home/programs/sway)|
 |Shell|[fish](https://github.com/oluceps/nixos-config/tree/pub/home/programs/fish)|
-|Bar|[waybar](https://github.com/oluceps/nixos-config/tree/pub/home/programs/waybar)|
 |Terminal|[wezterm](https://github.com/oluceps/nixos-config/tree/pub/home/programs/wezterm)|
 
 
@@ -49,8 +41,10 @@ nixos-rebuild switch --flake github:oluceps/nixos-config#hastur
 > tree
 .
 ├── boot.nix
+├── conf.nix.backup
 ├── flake.lock
 ├── flake.nix
+├── hardware-conf.nix.backup
 ├── home
 │   ├── default.nix
 │   ├── home.nix
@@ -91,7 +85,7 @@ nixos-rebuild switch --flake github:oluceps/nixos-config#hastur
 │           └── wezterm.lua
 ├── hosts
 │   ├── default.nix
-│   ├── hastur
+│   ├── frnks
 │   │   ├── default.nix
 │   │   ├── hardware.nix
 │   │   └── network.nix
@@ -157,13 +151,7 @@ nixos-rebuild switch --flake github:oluceps/nixos-config#hastur
 ├── shell.nix
 ├── sysvars.nix
 └── users.nix
-
-38 directories, 71 files
 ```  
-
-## Screenshot  
-![screenshot](./screenshot.png)
-
 
 ## Resources  
 Excellent configurations that I've learned and copied:  
