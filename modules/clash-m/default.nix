@@ -34,7 +34,7 @@ in
       systemd.services.clash = {
 
         wantedBy = [ "multi-user.target" ];
-        after = [ "network.target" ];
+        after = [ "network-online.target" ];
         description = "Clash-meta Daemon";
 
         serviceConfig = {

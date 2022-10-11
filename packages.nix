@@ -2,7 +2,26 @@
 {
   # programs.vscode.package = pkgs.vscode.fhsWithPackages (ps: with ps; [ rustup zlib gdb]);
   environment.systemPackages = with pkgs; [
+    openal
+    qt5.full
+    zlib
+    vistafonts-chs
+    vistafonts-cht
+    vistafonts
+    corefonts
+    
+    gnomeExtensions.transparent-top-bar
+    gnomeExtensions.system-monitor
+    gnomeExtensions.dock-from-dash
+    gnomeExtensions.clipboard-indicator
+    gnomeExtensions.gsconnect
+    gnomeExtensions.just-perfection
+    
     flatpak
+    
+    #nur.repos.ocfox.gtk-qq
+    gtk4
+    libadwaita
     
     xdotool
     gparted

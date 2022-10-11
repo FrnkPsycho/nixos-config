@@ -7,6 +7,8 @@
 , user
 , ...
 }: {
+  # librarySystemDepends = [pkgs.zlib];
+  programs.gamemode.enable = true;
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
@@ -125,10 +127,7 @@
       };
     };
   };
-  # Enable sound.
-  security.rtkit.enable = true;
-
-  # $ nix search wget
+  
   i18n.inputMethod = {
     enabled = "fcitx5";
     fcitx5.addons = with pkgs; [

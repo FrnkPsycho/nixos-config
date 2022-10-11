@@ -36,8 +36,10 @@
     { device = "/dev/disk/by-uuid/3012-5FA2";
       fsType = "vfat";
     };
+  
+  # fileSystems."/swap".options = [ "noatime" ];
 
-  swapDevices = [ ];
+  swapDevices = [ { device = "/swap/swapfile"; } ];
 
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   hardware.firmware = [ pkgs.rtw89-firmware ];

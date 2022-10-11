@@ -19,7 +19,10 @@
 
 
   home.packages = with pkgs; [
-    nur.repos.ocfox.gtk-qq
+    # gamemode
+    helvum
+    wpsoffice-cn
+    nur.repos.xddxdd.svp
     spice-vdagent
     spice
     radare2
@@ -162,8 +165,7 @@
     
     vscode = {
       enable = true;
-      package = pkgs.vscode.fhsWithPackages (ps: with ps; [ rustup zlib rust-analyzer ]);
-      
+      package = pkgs.vscode.fhsWithPackages (ps: with ps; [ rustup zlib ]);
     };
     
     git = {

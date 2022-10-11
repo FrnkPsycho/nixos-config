@@ -12,23 +12,16 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # Enable the OpenSSH daemon.
-
+  security.rtkit.enable = true;
   security.pam.u2f.enable = true;
   services = {
     flatpak.enable = true;
     udev.packages = [ pkgs.android-udev-rules pkgs.qmk-udev-rules (pkgs.callPackage ./modules/packs/opensk-udev-rules { }) ];
     gnome.gnome-keyring.enable = true;
-#    pipewire = {
-#      enable = true;
-#      alsa.enable = true;
-#      alsa.support32Bit = true;
-#      pulse.enable = true;
-#      jack.enable = true;
-#    };
+    # pipewire.enable = true;
     #    hysteria.enable = true;
 
-    fstrim.enable = true;
+    # fstrim.enable = true;
 
     ss = {
       enable = false;
@@ -62,8 +55,6 @@
     sing-box = {
       enable = false;
     };
-
-
 
     snapper = {
       snapshotRootOnBoot = true;
@@ -110,6 +101,7 @@
 
     openssh = {
       enable = true;
+      forwardX11 = true;
       passwordAuthentication = false;
       extraConfig = ''
         useDNS no

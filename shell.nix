@@ -3,7 +3,7 @@ pkgsCross.arm-embedded.stdenv.mkDerivation {
 name = "env";
   # nativeBuildInputs is usually what you want -- tools you need to run
   nativeBuildInputs = with pkgs; [
-
+    qt5.full
     llvmPackages_latest.bintools.all
     openssl_1_1
     openssl.dev

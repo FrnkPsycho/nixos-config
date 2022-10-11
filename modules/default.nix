@@ -6,6 +6,7 @@
   ./ss
   ./clash-m
   ./sing-box
+  # ./pipewire
   #    ./kitty.nix
   #    ./starship.nix
   #    ./nnn.nix
