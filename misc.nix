@@ -94,6 +94,7 @@
   fonts = {
     enableDefaultFonts = true;
     fontDir.enable = true;
+    #antialias = false;
     enableGhostscriptFonts = true;
     fonts = with pkgs; [
 
@@ -119,6 +120,14 @@
     ++ (with nur-pkgs;[ maple-font.Mono-NF-v5 san-francisco plangothic ]);
     #"HarmonyOS Sans SC" "HarmonyOS Sans TC"
     fontconfig = {
+      antialias = true;
+      hinting = {
+        enable = false;
+        style = "hintnone";
+      };
+      subpixel = {
+        lcdfilter = "light";
+      };
       defaultFonts = {
         serif = [ "Glow Sans SC" "Glow Sans TC" "Glow Sans J" "Noto Serif" "Noto Serif CJK SC" "Noto Serif CJK TC" "Noto Serif CJK JP" ];
         monospace = [ "SF Mono" ];

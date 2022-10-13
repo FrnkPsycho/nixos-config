@@ -1,9 +1,14 @@
 { pkgs, ... }:
 {
+  # programs.ghc.package = pkgs.ghc.withPackages (hp: with hp; [ zlib ]);
   # programs.vscode.package = pkgs.vscode.fhsWithPackages (ps: with ps; [ rustup zlib gdb]);
   environment.systemPackages = with pkgs; [
+    alsa-oss
+    autoconf automake curl python3 libmpc mpfr gmp gawk bison flex texinfo gperf libtool patchutils bc expat gnum4
+    
     openal
     qt5.full
+    zlib.dev
     zlib
     vistafonts-chs
     vistafonts-cht
@@ -160,6 +165,9 @@
     (
       python3.withPackages
         (p: with p;[
+          pwntools
+          # maskpass
+          
           wordcloud
           qrcode
           matplotlib
@@ -202,6 +210,7 @@
   ]
   ++
   (with pkgs.nodePackages; [
+    hexo-cli
     vscode-json-languageserver
     typescript-language-server
     node2nix

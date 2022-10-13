@@ -18,6 +18,7 @@
     nixpkgs-unstable.url = github:NixOS/nixpkgs/nixos-unstable;
     flake-utils.url = github:numtide/flake-utils;
     nix-colors.url = github:misterio77/nix-colors;
+    mach-nix.url = github:DavHau/mach-nix;
     agenix.url = github:ryantm/agenix;
     nur.url = github:nix-community/NUR;
     nur-pkgs = {
@@ -59,7 +60,7 @@
       url = github:helix-editor/helix;
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
-
+    
     hyprland = {
       url = github:vaxerski/Hyprland;
       # build with your own instance of nixpkgs
@@ -71,8 +72,6 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     grub2-themes.url = github:vinceliuice/grub2-themes;
-
-    mach-nix.url = "mach-nix/3.5.0";
   };
 
 }

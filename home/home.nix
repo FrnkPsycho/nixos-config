@@ -20,6 +20,7 @@
 
   home.packages = with pkgs; [
     # gamemode
+    razergenie
     helvum
     wpsoffice-cn
     nur.repos.xddxdd.svp
