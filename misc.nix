@@ -6,14 +6,43 @@
 , lib
 , user
 , ...
-}: {
+}:
+
+#let
+#    nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload" ''
+#    export __NV_PRIME_RENDER_OFFLOAD=1
+#    export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
+#    export __GLX_VENDOR_LIBRARY_NAME=nvidia
+#    export __VK_LAYER_NV_optimus=NVIDIA_only
+#    exec "$@"
+#  '';
+#in
+
+ {
   # librarySystemDepends = [pkgs.zlib];
+  # virtualisation.virtualbox.host.enableExtensionPack = true;
+  # virtualisation.virtualbox.host.enable = true;
+  # users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
+  #environment.systemPackages = [ nvidia-offload ];
+  #hardware.nvidia.prime = {
+    #offload.enable = true;
+
+    # Bus ID of the Intel GPU. You can find it using lspci, either under 3D or VGA
+    #amdgpuBusId = "PCI:5:0:0";
+
+    # Bus ID of the NVIDIA GPU. You can find it using lspci, either under 3D or VGA
+  #  nvidiaBusId = "PCI:1:0:0";
+  #};
+  # hardware.nvidia.powerManagement.enable = true;
+  # hardware.nvidia.powerManagement.finegrained = true;
+  
   programs.gamemode.enable = true;
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   };
+  
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "steam"
     "steam-original"
@@ -45,6 +74,9 @@
 
   # Optionally, you may need to select the appropriate driver version for your specific GPU.
   hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
+  hardware.nvidia.nvidiaPersistenced = true;
+  # hardware.nvidia.modesetting.enable = true;
+  
   nix = {
     #     settings.substituters = [ "https://mirrors.bfsu.edu.cn/nix-channels/store" ];
     package = pkgs.nixVersions.stable;
@@ -74,6 +106,8 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
+  #i18n.supportedLocales = [ "en_US.UTF-8/UTF-8" "ja_JP.SJIS/SJIS" ];
+  
   console = {
     font = "Lat2-Terminus16";
     keyMap = "us";

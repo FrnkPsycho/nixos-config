@@ -48,23 +48,4 @@ in
       modules = (import ./frnks) ++ sharedModules;
     }
   );
-
-
-  hastur = nixosSystem (
-    let user = "riro"; in
-    {
-      inherit system pkgs;
-      specialArgs = { inherit inputs system user; };
-      modules = (import ./hastur) ++ sharedModules;
-    }
-  );
-
-  kaambl = nixosSystem (
-    let user = "elena"; in
-    {
-      inherit system pkgs;
-      specialArgs = { inherit inputs system user; };
-      modules = (import ./kaambl) ++ sharedModules;
-    }
-  );
 }

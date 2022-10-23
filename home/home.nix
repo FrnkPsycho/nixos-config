@@ -20,9 +20,12 @@
 
   home.packages = with pkgs; [
     # gamemode
+    # virtualbox
     razergenie
     helvum
     wpsoffice-cn
+    nur.repos.YisuiMilena.hmcl-bin
+    nur.repos.xddxdd.baidupcs-go
     nur.repos.xddxdd.svp
     spice-vdagent
     spice
@@ -127,7 +130,6 @@
     file
     julia-bin
     tree
-    polymc
   ];
   home.pointerCursor = {
     gtk.enable = true;
@@ -166,7 +168,8 @@
     
     vscode = {
       enable = true;
-      package = pkgs.vscode.fhsWithPackages (ps: with ps; [ rustup zlib ]);
+      package = pkgs.vscode.fhs;
+      #package = pkgs.vscode.fhsWithPackages (ps: with ps; [ rustup zlib ]);
     };
     
     git = {

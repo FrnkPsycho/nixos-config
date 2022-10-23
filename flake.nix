@@ -35,7 +35,6 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    polymc.url = github:PolyMC/PolyMC;
     sops-nix.url = github:Mic92/sops-nix;
 
     pywmpkg = {

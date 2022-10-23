@@ -3,8 +3,25 @@
   # programs.ghc.package = pkgs.ghc.withPackages (hp: with hp; [ zlib ]);
   # programs.vscode.package = pkgs.vscode.fhsWithPackages (ps: with ps; [ rustup zlib gdb]);
   environment.systemPackages = with pkgs; [
+    # john
+    packer
+    vagrant
+    unrar
+    xorriso
+    libguestfs
+    p7zip
+    #python310Packages.pwntools
+    #python310Packages.cryptography
+    lm_sensors
+    # mesa
+    steam-run
+    # cudaPackages.cudatoolkit
+    dos2unix
+    glibc
+    bore
+    xclip
     alsa-oss
-    autoconf automake curl python3 libmpc mpfr gmp gawk bison flex texinfo gperf libtool patchutils bc expat gnum4
+    autoconf automake curl libmpc mpfr gmp gawk bison flex texinfo gperf libtool patchutils bc expat gnum4
     
     openal
     qt5.full
@@ -16,21 +33,23 @@
     corefonts
     
     gnomeExtensions.transparent-top-bar
-    gnomeExtensions.system-monitor
     gnomeExtensions.dock-from-dash
+    gnomeExtensions.system-monitor-next
+    # gnomeExtensions.resource-monitor
     gnomeExtensions.clipboard-indicator
     gnomeExtensions.gsconnect
     gnomeExtensions.just-perfection
     
     flatpak
     
-    #nur.repos.ocfox.gtk-qq
+    nur.repos.ocfox.gtk-qq
     gtk4
     libadwaita
     
     xdotool
     gparted
-    chrome-gnome-shell
+    # chrome-gnome-shell
+    gnome-browser-connector
     editorconfig-checker
     # KVM
     virt-manager
@@ -163,8 +182,9 @@
    ] ++
   [
     (
-      python3.withPackages
+      python310.withPackages
         (p: with p;[
+          chardet
           pwntools
           # maskpass
           
@@ -205,12 +225,13 @@
           tockloader
           colorama
           six
-        ])
+        ]
+      )
     )
   ]
   ++
   (with pkgs.nodePackages; [
-    hexo-cli
+    # hexo-cli
     vscode-json-languageserver
     typescript-language-server
     node2nix

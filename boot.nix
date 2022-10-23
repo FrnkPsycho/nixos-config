@@ -37,7 +37,7 @@
       efi.canTouchEfiVariables = true;
     };
     supportedFilesystems = [ "ntfs" "tcp_bbr" ];
-    # kernelParams = ["nvidia-drm.modeset=1" "nouveau.blacklist=1"];
+    # kernelParams = [ "nomodeset" "nouveau.modeset=0" ];
     kernel.sysctl = {
       # Disable magic SysRq key
       "kernel.sysrq" = 0;

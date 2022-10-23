@@ -38,7 +38,7 @@ return {
 
 	colors = catppuccin,
 
-	window_background_opacity = 0.82,
+	window_background_opacity = 0.95,
 
 	-- Font configuration
 	-- https://wezfurlong.org/wezterm/config/fonts.html
@@ -107,9 +107,9 @@ return {
 		-- ( "nvim-treesitter/nvim-treesitter" | wbthomason/packer.nvim | wez/wezterm | "wez/wezterm.git" )
 		-- As long as a full URL hyperlink regex exists above this it should not match a full URL to
 		-- GitHub or GitLab / BitBucket (i.e. https://gitlab.com/user/project.git is still a whole clickable URL)
-		{
-			regex = [[["]?([\w\d]{1}[-\w\d]+)(/){1}([-\w\d\.]+)["]?]],
-			format = "https://www.github.com/$1/$3",
-		},
+		--{
+		--	regex = [[["]?([\w\d]{1}[-\w\d]+)(/){1}([-\w\d\.]+)["]?]],
+		--	format = "https://www.github.com/$1/$3",
+		--},
 	},
 }

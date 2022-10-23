@@ -13,6 +13,7 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [];
+  boot.loader.timeout = 3;
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/64765921-abaf-4401-be91-6b9db3a2217c";
@@ -65,7 +66,7 @@
         matches = [{ "device.name" = "~bluez_card.*"; }];
         actions = {
           "update-props" = {
-            "bluez5.auto-connect" = [ "hfp_hf" "hsp_hs" "a2dp_sink" ];
+            "bluez5.auto-connect" = [ "a2dp_sink" ];
           };
         };
       }
