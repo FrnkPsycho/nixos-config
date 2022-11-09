@@ -3,7 +3,14 @@
   # programs.ghc.package = pkgs.ghc.withPackages (hp: with hp; [ zlib ]);
   # programs.vscode.package = pkgs.vscode.fhsWithPackages (ps: with ps; [ rustup zlib gdb]);
   environment.systemPackages = with pkgs; [
+    easyeffects  
+    input-remapper
+    cargo-binutils
+    virtiofsd
+    vulkan-caps-viewer
+    #amdvlk
     # john
+    #vulkan-loader
     packer
     vagrant
     unrar
@@ -13,7 +20,8 @@
     #python310Packages.pwntools
     #python310Packages.cryptography
     lm_sensors
-    # mesa
+    mesa
+    vulkan-tools
     steam-run
     # cudaPackages.cudatoolkit
     dos2unix
@@ -184,6 +192,9 @@
     (
       python310.withPackages
         (p: with p;[
+          numpy
+          gmpy2
+          pycryptodome
           chardet
           pwntools
           # maskpass

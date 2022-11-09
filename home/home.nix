@@ -21,9 +21,13 @@
   home.packages = with pkgs; [
     # gamemode
     # virtualbox
+    # vmware-workstation
+    # input-remapper
+    mpv
     razergenie
     helvum
     wpsoffice-cn
+    nur.repos.linyinfeng.wemeet
     nur.repos.YisuiMilena.hmcl-bin
     nur.repos.xddxdd.baidupcs-go
     nur.repos.xddxdd.svp

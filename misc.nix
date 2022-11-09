@@ -70,7 +70,12 @@
   };
   
   services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.opengl.enable = true;
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
+    extraPackages = [ pkgs.mesa.drivers ];  
+  };
 
   # Optionally, you may need to select the appropriate driver version for your specific GPU.
   hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
@@ -147,6 +152,10 @@
       noto-fonts-emoji
       sarasa-gothic
       twemoji-color-font
+      corefonts
+      vistafonts
+      vistafonts-chs
+      vistafonts-cht
       #      font-awesome
       #      fira-code-symbols
       #    cascadia-code
