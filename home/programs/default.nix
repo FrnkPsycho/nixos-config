@@ -8,6 +8,7 @@
   ./starship.nix
   ./nnn.nix
   ./nushell
+  ./hyprland
   ./bspwm
   ./ranger
   ./wezterm

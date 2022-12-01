@@ -35,6 +35,16 @@
   #};
   # hardware.nvidia.powerManagement.enable = true;
   # hardware.nvidia.powerManagement.finegrained = true;
+  # programs.hyprland.enable = true;
+  networking.extraHosts =
+  ''
+    127.0.0.1 www.sweetscape.com
+  '';
+  
+  nixpkgs.config.chromium.commandLineArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland";
+  nixpkgs.config.permittedInsecurePackages = [
+    "qtwebkit-5.212.0-alpha4"
+  ];
   
   programs.gamemode.enable = true;
   programs.steam = {

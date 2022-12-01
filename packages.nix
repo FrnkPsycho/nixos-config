@@ -3,6 +3,12 @@
   # programs.ghc.package = pkgs.ghc.withPackages (hp: with hp; [ zlib ]);
   # programs.vscode.package = pkgs.vscode.fhsWithPackages (ps: with ps; [ rustup zlib gdb]);
   environment.systemPackages = with pkgs; [
+    nur.repos.linyinfeng.icalingua-plus-plus
+    aegisub
+    razergenie
+    sage
+    chromium
+    burpsuite
     easyeffects  
     input-remapper
     cargo-binutils
@@ -32,7 +38,8 @@
     autoconf automake curl libmpc mpfr gmp gawk bison flex texinfo gperf libtool patchutils bc expat gnum4
     
     openal
-    qt5.full
+    # qt5.full
+    qt6.full
     zlib.dev
     zlib
     vistafonts-chs
@@ -50,7 +57,7 @@
     
     flatpak
     
-    nur.repos.ocfox.gtk-qq
+    # nur.repos.ocfox.gtk-qq
     gtk4
     libadwaita
     
@@ -192,6 +199,14 @@
     (
       python310.withPackages
         (p: with p;[
+          pyperclip
+          black
+          setuptools
+          # z3-solver
+          z3
+          bitarray
+          pycrypto
+          flask
           numpy
           gmpy2
           pycryptodome

@@ -61,7 +61,7 @@
     };
     
     hyprland = {
-      url = github:vaxerski/Hyprland;
+      url = github:hyprwm/Hyprland;
       # build with your own instance of nixpkgs
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };

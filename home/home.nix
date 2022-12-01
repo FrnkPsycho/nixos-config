@@ -24,7 +24,7 @@
     # vmware-workstation
     # input-remapper
     mpv
-    razergenie
+    # razergenie
     helvum
     wpsoffice-cn
     nur.repos.linyinfeng.wemeet
@@ -44,7 +44,7 @@
     gnomecast
     sioyek
     thunderbird
-    nur-pkgs.rustplayer
+    # nur-pkgs.rustplayer
     nheko
     conda
     gtk4

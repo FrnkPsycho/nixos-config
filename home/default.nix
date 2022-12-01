@@ -12,7 +12,7 @@ in
       imports = [
         homeProfile
         inputs.hyprland.homeManagerModules.default
-        ../modules/hyprland
+        #../modules/hyprland
         #        
       ];
     };

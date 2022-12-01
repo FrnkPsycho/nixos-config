@@ -12,6 +12,7 @@
   #    ./nnn.nix
   #    ./nushell
   #    ./bspwm
+  # ./hyprland
   ./hysteria
   #    ./ranger
   #    ./wezterm
