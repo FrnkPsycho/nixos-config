@@ -4,7 +4,7 @@
     enable = true;
     settings = {
       main = {
-        font = "SF Mono:size=12.5:style=Medium";
+        font = "SF Mono:size=11:style=Medium";
         dpi-aware = "yes";
         term = "xterm-256color";
         pad = "8x8";
@@ -12,7 +12,7 @@
       };
 
       colors = {
-        alpha = "0.65";
+        alpha = "0.9";
         background = "35333c";
         bright0 = "a7a8bd";
         bright1 = "f38ba8";
