@@ -68,7 +68,7 @@
         set fish_color_cwd green
         set fish_color_cwd_root red
         set fish_color_valid_path --underline
-        set fish_color_autosuggestion white
+        set fish_color_autosuggestion grey
         set fish_color_user brgreen
         set fish_color_host normal
         set fish_color_cancel --reverse
