@@ -36,6 +36,8 @@
   # hardware.nvidia.powerManagement.enable = true;
   # hardware.nvidia.powerManagement.finegrained = true;
   # programs.hyprland.enable = true;
+  programs.xwayland.enable = true;
+  # programs.kdeconnect.enable = true;
   networking.extraHosts =
   ''
     127.0.0.1 www.sweetscape.com
@@ -72,6 +74,7 @@
       displayManager.gdm = {
         enable = true;
         wayland = true;
+        # nvidiaWayland = true;
       };
     };
   zramSwap = {
@@ -88,9 +91,14 @@
   };
 
   # Optionally, you may need to select the appropriate driver version for your specific GPU.
-  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
+  hardware = {
+    nvidia = {
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+      # open = true;
+    };
+  };
   hardware.nvidia.nvidiaPersistenced = true;
-  # hardware.nvidia.modesetting.enable = true;
+  hardware.nvidia.modesetting.enable = true;
   
   nix = {
     #     settings.substituters = [ "https://mirrors.bfsu.edu.cn/nix-channels/store" ];
@@ -130,7 +138,7 @@
 
   programs = {
     fish.enable = true;
-    sway.enable = true;
+    # sway.enable = true;
     dconf.enable = true;
   };
   #  programs.waybar.enable = true;
@@ -160,9 +168,13 @@
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
       noto-fonts-emoji
+      # noto-fonts-extra
       sarasa-gothic
       twemoji-color-font
+      liberation_ttf
       corefonts
+      wqy_zenhei
+      wqy_microhei
       vistafonts
       vistafonts-chs
       vistafonts-cht

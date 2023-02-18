@@ -48,7 +48,7 @@
   
   
   hardware.bluetooth.enable = true;
-  hardware.bluetooth.hsphfpd.enable = true;
+  # hardware.bluetooth.hsphfpd.enable = true;
   # Pipewire config
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;

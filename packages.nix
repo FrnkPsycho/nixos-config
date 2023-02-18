@@ -2,23 +2,39 @@
 {
   # programs.ghc.package = pkgs.ghc.withPackages (hp: with hp; [ zlib ]);
   # programs.vscode.package = pkgs.vscode.fhsWithPackages (ps: with ps; [ rustup zlib gdb]);
+  
   environment.systemPackages = with pkgs; [
-    nur.repos.linyinfeng.icalingua-plus-plus
-    aegisub
+    # foot
+    helix
+    libtiff
+    nasm
+    file
+    tree
+    desktop-file-utils
+    appimage-run
+    jdk
+    jdk8
+    jdk11
+    jdk17
+    # filezilla
+    # nur.repos.linyinfeng.icalingua-plus-plus
+    # aegisub
     razergenie
-    sage
-    chromium
-    burpsuite
+    # sage
+    # chromium
+    # burpsuite
     easyeffects  
     input-remapper
     cargo-binutils
     virtiofsd
     vulkan-caps-viewer
     #amdvlk
-    # john
+    john
+    ascii
+    
     #vulkan-loader
     packer
-    vagrant
+    # vagrant
     unrar
     xorriso
     libguestfs
@@ -50,6 +66,10 @@
     gnomeExtensions.transparent-top-bar
     gnomeExtensions.dock-from-dash
     gnomeExtensions.system-monitor-next
+    gnomeExtensions.arcmenu
+    gnomeExtensions.improved-workspace-indicator
+    gnomeExtensions.forge
+    gnomeExtensions.tiling-assistant
     # gnomeExtensions.resource-monitor
     gnomeExtensions.clipboard-indicator
     gnomeExtensions.gsconnect
@@ -77,7 +97,7 @@
     choose
     duf
     procs
-    httpie
+    # httpie
     dog
 
 
@@ -117,8 +137,6 @@
     stylua
     black
 
-
-
     powertop
 
     zbar
@@ -130,7 +148,7 @@
     inetutils
     imgcat
 
-    mongodb-tools
+    # mongodb-tools
     tcpdump
 
     pciutils
@@ -144,7 +162,7 @@
 
     bat
 
-    mongodb
+    # mongodb
 
     mtr
     openssl_1_1
@@ -186,7 +204,7 @@
     clang
     gcc
     curl
-    jdk
+    # jdk
     coreutils
     nix-index
     tmux
@@ -200,7 +218,7 @@
       python310.withPackages
         (p: with p;[
           pyperclip
-          black
+          # black
           setuptools
           # z3-solver
           z3
@@ -217,7 +235,7 @@
           wordcloud
           qrcode
           matplotlib
-          pylsp-mypy
+          # pylsp-mypy
 
           fontforge
 

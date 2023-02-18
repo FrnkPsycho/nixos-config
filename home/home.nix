@@ -1,5 +1,6 @@
 { config
 , pkgs
+, inputs
 , ...
 }:
 {
@@ -16,21 +17,37 @@
     manpages.enable = false;
   };
 
+  # nixpkgs.config.allowUnfree = true;
+  home.packages = let
+  list1 = let pkgs = import inputs.nixpkgs-tempwps { 
+    system= "x86_64-linux"; 
+    config.allowUnfree = true;
+  }; in with pkgs; [
+    libtiff
+    wpsoffice-cn
+    # wezterm
+  ];
 
-
-  home.packages = with pkgs; [
+  list2 = with pkgs; [
     # gamemode
     # virtualbox
     # vmware-workstation
     # input-remapper
+    # multimc
+    prismlauncher
+    minder
     mpv
+    filezilla
+    aegisub
+    chromium
     # razergenie
-    helvum
-    wpsoffice-cn
+    # helvum
+    # wpsoffice-cn
     nur.repos.linyinfeng.wemeet
     nur.repos.YisuiMilena.hmcl-bin
-    nur.repos.xddxdd.baidupcs-go
-    nur.repos.xddxdd.svp
+    nur.repos.linyinfeng.icalingua-plus-plus
+    # nur.repos.xddxdd.baidupcs-go
+    # nur.repos.xddxdd.svp
     spice-vdagent
     spice
     radare2
@@ -38,103 +55,111 @@
     bottles
     mdbook
     nur.repos.xddxdd.wechat-uos-bin
+    #nur.repos.xddxdd.wine-wechat
     obsidian
     gnome.nautilus
     gnome.eog
     gnomecast
-    sioyek
+    # sioyek
     thunderbird
     # nur-pkgs.rustplayer
-    nheko
-    conda
+    # nheko
+    # conda
     gtk4
-    lapce
-    element-desktop-wayland
+    # lapce
+    # element-desktop-wayland
     #fluffychat
     tetrio-desktop
     ffmpeg_5-full
-    swayidle
-    foot
+    # swayidle
+    # foot
 
     fuzzel
-    swaybg
-    wl-clipboard
-    wf-recorder
-    mako
-    grim
-    slurp
+    # swaybg
+    # wl-clipboard
+    # wf-recorder
+    # mako
+    # grim
+    # slurp
 
-    mongodb-compass
+    # mongodb-compass
+    
 
-    via
+    # via
     discord-canary
 
     qemu
     iwd
 
-    geda
+    # geda
 
     ncdu_2 # disk space info
 
     # clipboard
-    xsel
+    # xsel
 
-    thunderbird
+    # thunderbird
 
-    spotify
-    nushell
+    # spotify
+    # nushell
 
-    geekbench5
+    # geekbench5
 
-    wayfire
+    # wayfire
 
     btop
 
-    neovim-qt
+    # neovim-qt
     smartmontools
     wireshark-qt
-    wezterm
+    # wezterm
     android-tools
     tor-browser-bundle-bin
     cargo-cross
     # android-studio
     zellij
     netease-cloud-music-gtk
-    cmatrix
+    # cmatrix
     termius
-    kotatogram-desktop
+    #kotatogram-desktop
     autojump
     nmap
     lm_sensors
-    eww-wayland
-    rofi
-    picom
+    # eww-wayland
+    # rofi
+    # picom
 
     feh
-    pamixer
+    # pamixer
     sl
-    ncpamixer
+    # ncpamixer
     starship
-    #texlive.
-    texlive.combined.scheme-full
+    # texlive.
+    # texlive.combined.scheme-full
     vlc
     firefox-wayland
     bluedevil
     #zathura
-    jetbrains.clion
-    jetbrains.goland
-    jetbrains.pycharm-professional
-    jetbrains.datagrip
-    jetbrains.phpstorm
-    jetbrains.webstorm
-    jetbrains.idea-ultimate
-    bspwm
-    sxhkd
+    # jetbrains.clion
+    # jetbrains.goland
+    # jetbrains.pycharm-professional
+    # jetbrains.datagrip
+    # jetbrains.phpstorm
+    # jetbrains.webstorm
+    # jetbrains.idea-ultimate
+    # bspwm
+    # sxhkd
     tdesktop
-    file
-    julia-bin
-    tree
+    
+    # file
+    # julia-bin
+    # tree
   ];
+  in
+  list1 ++ list2;
+  
+  # home.packages = brokenTempList ++ normalList;
+  
   home.pointerCursor = {
     gtk.enable = true;
     x11.enable = true;

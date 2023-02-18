@@ -112,8 +112,10 @@
 
     openssh = {
       enable = true;
-      forwardX11 = true;
-      passwordAuthentication = false;
+      settings = {
+       X11Forwarding = true;
+       PasswordAuthentication = false;
+      };
       extraConfig = ''
         useDNS no
       '';
@@ -153,8 +155,9 @@
     };
   };
 
-
-  qt5.platformTheme = "qt5ct";
+  qt.enable = true;
+  qt.style = "adwaita";
+  qt.platformTheme = "qt5ct";
 
   programs = {
     ssh.startAgent = false;

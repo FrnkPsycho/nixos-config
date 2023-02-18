@@ -23,5 +23,11 @@
     wireless.iwd.enable = true;
     networkmanager.enable = true;
     networkmanager.dns = "systemd-resolved";
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [ 7891 80 443 ];
+      allowedTCPPortRanges = [ {from = 1716; to = 1764;} ];
+      allowedUDPPortRanges = [ {from = 1716; to = 1764;} ];
+    };
   };
 }

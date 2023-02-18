@@ -16,10 +16,11 @@
   inputs = {
     nixpkgs.url = github:NixOS/nixpkgs/nixos-unstable;
     nixpkgs-unstable.url = github:NixOS/nixpkgs/nixos-unstable;
+    nixpkgs-tempwps.url = github:NixOS/nixpkgs?rev=3c575a659f10a8564a1c4a661570ee933e31ea2e;
     flake-utils.url = github:numtide/flake-utils;
     nix-colors.url = github:misterio77/nix-colors;
     mach-nix.url = github:DavHau/mach-nix;
-    agenix.url = github:ryantm/agenix;
+    # agenix.url = github:ryantm/agenix;
     nur.url = github:nix-community/NUR;
     nur-pkgs = {
       url = github:oluceps/nur-pkgs;
@@ -27,7 +28,7 @@
     };
     
     clash-meta = {
-      url = github:oluceps/Clash.Meta/Alpha;
+      url = github:FrnkPsycho/Clash.Meta/Alpha;
     };
 
     alejandra = {

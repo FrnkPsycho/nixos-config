@@ -16,8 +16,10 @@ local catppuccin = require("catppuccin").setup({
 
 return {
 	-- Smart tab bar [distraction-free mode]
-	hide_tab_bar_if_only_one_tab = true,
-	enable_wayland = true,
+	enable_tab_bar = true,
+	use_fancy_tab_bar = true,
+	hide_tab_bar_if_only_one_tab = false,
+	-- enable_wayland = true,
 	scrollback_lines = 5000,
 
 	pane_focus_follows_mouse = true,
@@ -34,6 +36,14 @@ return {
 	-- https://draculatheme.com
 	window_padding = {
 		left = 8,
+	},
+
+	window_frame = {
+		font = wezterm.font {
+				family = "FiraCode Nerd Font Mono",
+    		weight = 'Bold',
+		},
+		font_size = 11.5,
 	},
 
 	colors = catppuccin,

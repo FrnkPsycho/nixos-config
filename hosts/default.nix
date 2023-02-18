@@ -6,6 +6,7 @@ let
   pkgs = import inputs.nixpkgs-unstable {
     inherit system;
     config.allowUnfree = true;
+    config.permittedInsecurePackages = [ "qtwebkit-5.212.0-alpha4" ];
     overlays = [
       (final: prev: {
         nur-pkgs = inputs.nur-pkgs.packages."${prev.system}";
@@ -25,14 +26,14 @@ let
     {
       environment.systemPackages = with inputs; [
         alejandra.defaultPackage.${system}
-        agenix.defaultPackage.${system}
-        helix.packages.${system}.default
+        # agenix.defaultPackage.${system}
+        # helix.packages.${system}.default
       ];
     }
   ] ++ (with inputs;[
 
-    agenix.nixosModule
-    grub2-themes.nixosModule
+    # agenix.nixosModules
+    grub2-themes.nixosModules.default
     home-manager.nixosModules.home-manager
 
   ]) ++ (import ../modules);
