@@ -4,6 +4,8 @@
   # programs.vscode.package = pkgs.vscode.fhsWithPackages (ps: with ps; [ rustup zlib gdb]);
   
   environment.systemPackages = with pkgs; [
+    nautilus-open-any-terminal
+    unar
     # foot
     helix
     libtiff
@@ -47,6 +49,7 @@
     steam-run
     # cudaPackages.cudatoolkit
     dos2unix
+    glib
     glibc
     bore
     xclip

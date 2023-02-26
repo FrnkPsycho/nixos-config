@@ -5,6 +5,12 @@
 }:
 {
 
+  #dconf.settings = {
+  #  "org/gnome/mutter" = {
+  #    experimental-features = [ "scale-moniter-framebuffer"];
+  #  };
+  #};
+
   imports = import ./programs;
   home.stateVersion = "22.11";
   home.sessionVariables = {
@@ -34,6 +40,10 @@
     # vmware-workstation
     # input-remapper
     # multimc
+    qq
+    lutris
+    baobab
+    libreoffice
     prismlauncher
     minder
     mpv

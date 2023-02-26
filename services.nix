@@ -26,6 +26,10 @@
   security.pam.u2f.enable = true;
 
   services = {
+    earlyoom = {
+      enable = true;
+      freeMemThreshold = 5;
+    };
     flatpak.enable = true;
     udev.packages = [ pkgs.android-udev-rules pkgs.qmk-udev-rules (pkgs.callPackage ./modules/packs/opensk-udev-rules { }) ];
     gnome.gnome-keyring.enable = true;
@@ -70,7 +74,7 @@
     snapper = {
       snapshotRootOnBoot = true;
       snapshotInterval = "hourly";
-      cleanupInterval = "3d";
+      cleanupInterval = "1d";
       configs = {
 
         root = {

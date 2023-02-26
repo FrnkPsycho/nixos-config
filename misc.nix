@@ -33,8 +33,8 @@
     # Bus ID of the NVIDIA GPU. You can find it using lspci, either under 3D or VGA
   #  nvidiaBusId = "PCI:1:0:0";
   #};
-  # hardware.nvidia.powerManagement.enable = true;
-  # hardware.nvidia.powerManagement.finegrained = true;
+  #hardware.nvidia.powerManagement.enable = true;
+  #hardware.nvidia.powerManagement.finegrained = true;
   # programs.hyprland.enable = true;
   programs.xwayland.enable = true;
   # programs.kdeconnect.enable = true;
@@ -78,7 +78,7 @@
       };
     };
   zramSwap = {
-    enable = false;
+    enable = true;
     algorithm = "zstd";
   };
   
@@ -94,11 +94,19 @@
   hardware = {
     nvidia = {
       package = config.boot.kernelPackages.nvidiaPackages.stable;
+      nvidiaPersistenced = true;
+      modesetting = {
+        enable = true;
+      };
+      powerManagement = {
+        enable = true;
+        # finegrained = true;
+      };
       # open = true;
     };
   };
-  hardware.nvidia.nvidiaPersistenced = true;
-  hardware.nvidia.modesetting.enable = true;
+  #hardware.nvidia.nvidiaPersistenced = true;
+  #hardware.nvidia.modesetting.enable = true;
   
   nix = {
     #     settings.substituters = [ "https://mirrors.bfsu.edu.cn/nix-channels/store" ];
@@ -182,7 +190,10 @@
       #      fira-code-symbols
       #    cascadia-code
     ] ++ (with (pkgs.callPackage ./modules/packs/glowsans/default.nix { }); [ glowsansSC glowsansTC glowsansJ ])
-    ++ (with nur-pkgs;[ maple-font.Mono-NF-v5 san-francisco plangothic ]);
+    ++ (with nur-pkgs;[
+     # maple-font.Mono-NF-v5
+     san-francisco 
+     plangothic ]);
     #"HarmonyOS Sans SC" "HarmonyOS Sans TC"
     fontconfig = {
       antialias = true;
