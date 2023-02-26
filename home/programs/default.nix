@@ -11,6 +11,6 @@
   # ./hyprland
   ./bspwm
   ./ranger
-  # ./wezterm
+  ./wezterm
   ./foot
 ]

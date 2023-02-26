@@ -122,7 +122,7 @@
     # neovim-qt
     smartmontools
     wireshark-qt
-    # wezterm
+    wezterm
     android-tools
     tor-browser-bundle-bin
     cargo-cross

@@ -43,7 +43,7 @@
   swapDevices = [ { device = "/swap/swapfile"; } ];
 
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-  hardware.firmware = [ pkgs.rtw89-firmware ];
+  # hardware.firmware = [ pkgs.rtw89-firmware ];
   hardware.openrazer.enable = true;
   
   
