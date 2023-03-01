@@ -19,13 +19,13 @@ return {
 	enable_tab_bar = true,
 	use_fancy_tab_bar = true,
 	hide_tab_bar_if_only_one_tab = false,
-	-- enable_wayland = true,
+	enable_wayland = true,
 	scrollback_lines = 5000,
 
 	pane_focus_follows_mouse = true,
 	warn_about_missing_glyphs = false,
 	use_ime = true,
-	xim_im_name = "fcitx5",
+	xim_im_name = "ibus",
 	enable_kitty_graphics = true,
 	window_close_confirmation = "NeverPrompt",
 

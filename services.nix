@@ -6,11 +6,6 @@
 }:
 
 {
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
   environment.etc = {
 	  "wireplumber/bluetooth.lua.d/51-bluez-config.lua".text = ''
 	  	bluez_monitor.properties = {
@@ -30,18 +25,15 @@
       enable = true;
       freeMemThreshold = 5;
     };
+
     flatpak.enable = true;
     udev.packages = [ pkgs.android-udev-rules pkgs.qmk-udev-rules (pkgs.callPackage ./modules/packs/opensk-udev-rules { }) ];
     gnome.gnome-keyring.enable = true;
-          # pipewire.enable = true;
-    #    hysteria.enable = true;
-
-    # fstrim.enable = true;
 
     ss = {
       enable = false;
     };
-    hysteria.enable = false;
+
     clash =
       {
         enable = true;
@@ -106,7 +98,6 @@
       };
     };
 
-
     btrfs.autoScrub = {
       enable = true;
       interval = "monthly";
@@ -118,7 +109,7 @@
       enable = true;
       settings = {
        X11Forwarding = true;
-       PasswordAuthentication = false;
+       PasswordAuthentication = true;
       };
       extraConfig = ''
         useDNS no
@@ -171,6 +162,7 @@
       chain = {
         type = "strict";
       };
+
       proxies = {
         clash = {
           type = "socks5";
@@ -179,6 +171,7 @@
         };
       };
     };
+    
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;

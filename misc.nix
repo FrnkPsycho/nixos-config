@@ -8,40 +8,11 @@
 , ...
 }:
 
-#let
-#    nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload" ''
-#    export __NV_PRIME_RENDER_OFFLOAD=1
-#    export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
-#    export __GLX_VENDOR_LIBRARY_NAME=nvidia
-#    export __VK_LAYER_NV_optimus=NVIDIA_only
-#    exec "$@"
-#  '';
-#in
-
  {
-  # librarySystemDepends = [pkgs.zlib];
-  # virtualisation.virtualbox.host.enableExtensionPack = true;
-  # virtualisation.virtualbox.host.enable = true;
-  # users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
-  #environment.systemPackages = [ nvidia-offload ];
-  #hardware.nvidia.prime = {
-    #offload.enable = true;
 
-    # Bus ID of the Intel GPU. You can find it using lspci, either under 3D or VGA
-    #amdgpuBusId = "PCI:5:0:0";
-
-    # Bus ID of the NVIDIA GPU. You can find it using lspci, either under 3D or VGA
-  #  nvidiaBusId = "PCI:1:0:0";
-  #};
-  #hardware.nvidia.powerManagement.enable = true;
-  #hardware.nvidia.powerManagement.finegrained = true;
-  # programs.hyprland.enable = true;
+  services.dbus.enable = true;
   programs.xwayland.enable = true;
-  # programs.kdeconnect.enable = true;
-  networking.extraHosts =
-  ''
-    127.0.0.1 www.sweetscape.com
-  '';
+
   
   nixpkgs.config.chromium.commandLineArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland";
   nixpkgs.config.permittedInsecurePackages = [
@@ -74,7 +45,6 @@
       displayManager.gdm = {
         enable = true;
         wayland = true;
-        # nvidiaWayland = true;
       };
     };
   zramSwap = {
@@ -100,20 +70,15 @@
       };
       powerManagement = {
         enable = true;
-        # finegrained = true;
       };
       # open = true;
     };
   };
-  #hardware.nvidia.nvidiaPersistenced = true;
-  #hardware.nvidia.modesetting.enable = true;
-  
+
   nix = {
     #     settings.substituters = [ "https://mirrors.bfsu.edu.cn/nix-channels/store" ];
     package = pkgs.nixVersions.stable;
-
     settings = {
-
       trusted-public-keys = [
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
         "nur-pkgs.cachix.org-1:PAvPHVwmEBklQPwyNZfy4VQqQjzVIaFOkYYnmnKco78="
@@ -146,20 +111,11 @@
 
   programs = {
     fish.enable = true;
-    # sway.enable = true;
     dconf.enable = true;
   };
-  #  programs.waybar.enable = true;
-  #
-  #  # Enable the GNOME Desktop Environment.
-  #  services.xserver.desktopManager.gnome.enable = false;
-  #  services.xserver.videoDrivers = ["nvidia"];
-  #  hardware.opengl.enable=true;
-  #  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
   fonts = {
     enableDefaultFonts = true;
     fontDir.enable = true;
-    #antialias = false;
     enableGhostscriptFonts = true;
     fonts = with pkgs; [
 
@@ -176,7 +132,6 @@
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
       noto-fonts-emoji
-      # noto-fonts-extra
       sarasa-gothic
       twemoji-color-font
       liberation_ttf
@@ -186,15 +141,12 @@
       vistafonts
       vistafonts-chs
       vistafonts-cht
-      #      font-awesome
-      #      fira-code-symbols
-      #    cascadia-code
     ] ++ (with (pkgs.callPackage ./modules/packs/glowsans/default.nix { }); [ glowsansSC glowsansTC glowsansJ ])
     ++ (with nur-pkgs;[
-     # maple-font.Mono-NF-v5
+     maple-font.Mono-NF-v5
      san-francisco 
      plangothic ]);
-    #"HarmonyOS Sans SC" "HarmonyOS Sans TC"
+
     fontconfig = {
       antialias = true;
       hinting = {
@@ -214,18 +166,26 @@
   };
   
   i18n.inputMethod = {
+    #enabled = "ibus";
+    ibus.panel = "${pkgs.plasma5Packages.plasma-desktop}/lib/libexec/kimpanel-ibus-panel";
     enabled = "fcitx5";
+    ibus.engines = with pkgs.ibus-engines; [
+      libpinyin
+      typing-booster
+      table
+      table-chinese
+      uniemoji
+    ];
     fcitx5.addons = with pkgs; [
       fcitx5-chinese-addons
       fcitx5-mozc
+      fcitx5-lua
+      fcitx5-table-other
+      fcitx5-rime
+      libsForQt5.fcitx5-qt
       fcitx5-gtk
       fcitx5-configtool
     ];
   };
-  #    enabled = "ibus";
-  #    ibus.engines = with pkgs.ibus-engines; [
-  #      libpinyin
-  #      rime
-  #    ];
   system.stateVersion = "22.11"; # Did you read the comment?
 }

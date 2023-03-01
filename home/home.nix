@@ -5,12 +5,11 @@
 }:
 {
 
-  #dconf.settings = {
-  #  "org/gnome/mutter" = {
-  #    experimental-features = [ "scale-moniter-framebuffer"];
-  #  };
-  #};
-
+  dconf.settings = {
+    "org/gnome/mutter" = {
+      experimental-features = [ "scale-moniter-framebuffer"];
+    };
+  };
   imports = import ./programs;
   home.stateVersion = "22.11";
   home.sessionVariables = {
@@ -23,7 +22,6 @@
     manpages.enable = false;
   };
 
-  # nixpkgs.config.allowUnfree = true;
   home.packages = let
   list1 = let pkgs = import inputs.nixpkgs-tempwps { 
     system= "x86_64-linux"; 
@@ -31,15 +29,11 @@
   }; in with pkgs; [
     libtiff
     wpsoffice-cn
-    # wezterm
   ];
 
   list2 = with pkgs; [
-    # gamemode
-    # virtualbox
-    # vmware-workstation
-    # input-remapper
-    # multimc
+    audacious
+    audacious-plugins
     qq
     lutris
     baobab
@@ -50,14 +44,11 @@
     filezilla
     aegisub
     chromium
-    # razergenie
-    # helvum
+    helvum
     # wpsoffice-cn
     nur.repos.linyinfeng.wemeet
     nur.repos.YisuiMilena.hmcl-bin
     nur.repos.linyinfeng.icalingua-plus-plus
-    # nur.repos.xddxdd.baidupcs-go
-    # nur.repos.xddxdd.svp
     spice-vdagent
     spice
     radare2
@@ -65,43 +56,18 @@
     bottles
     mdbook
     nur.repos.xddxdd.wechat-uos-bin
-    #nur.repos.xddxdd.wine-wechat
     obsidian
     gnome.nautilus
     gnome.eog
     gnomecast
-    # sioyek
     thunderbird
-    # nur-pkgs.rustplayer
-    # nheko
-    # conda
-    gtk4
-    # lapce
-    # element-desktop-wayland
-    #fluffychat
     tetrio-desktop
     ffmpeg_5-full
-    # swayidle
-    # foot
-
     fuzzel
-    # swaybg
-    # wl-clipboard
-    # wf-recorder
-    # mako
-    # grim
-    # slurp
 
-    # mongodb-compass
-    
-
-    # via
     discord-canary
-
     qemu
     iwd
-
-    # geda
 
     ncdu_2 # disk space info
 
@@ -156,7 +122,7 @@
     # jetbrains.datagrip
     # jetbrains.phpstorm
     # jetbrains.webstorm
-    # jetbrains.idea-ultimate
+    jetbrains.idea-ultimate
     # bspwm
     # sxhkd
     tdesktop
@@ -208,6 +174,7 @@
     vscode = {
       enable = true;
       package = pkgs.vscode.fhs;
+      # commandLineArgs = ["--gtk4"];
       #package = pkgs.vscode.fhsWithPackages (ps: with ps; [ rustup zlib ]);
     };
     

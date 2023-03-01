@@ -1,5 +1,4 @@
 with import <nixpkgs> { }; 
-# pkgsCross.riscv64.mkShell{}
 pkgsCross.arm-embedded.stdenv.mkDerivation {
 name = "env";
   # nativeBuildInputs is usually what you want -- tools you need to run
@@ -12,8 +11,6 @@ name = "env";
     cargo-fuzz
     rustup
     newlib-nano
-    #    binutils-unwrapped-all-targets
-
     (
       let
         mach-nix = import

@@ -2,10 +2,6 @@ inputs:
 [
   (final: prev: {
 
-        # sha256 = "0000000000000000000000000000000000000000000000000000";
-    #      nur-pkgs = inputs.nur-pkgs.packages."${prev.system}";
-
-
     picom = prev.picom.overrideAttrs (old: {
       src = prev.fetchFromGitHub {
         owner = "yshui";
@@ -14,15 +10,6 @@ inputs:
         sha256 = "sha256-daLb7ebMVeL+f8WydH4DONkUA+0D6d+v+pohJb2qjOo=";
       };
     });
-
-    #      waybar = prev.waybar.overrideAttrs (old: {
-    #        patchPhase = ''
-    #          sed -i 's/zext_workspace_handle_v1_activate(workspace_handle_);/const std::string command = "hyprctl dispatch workspace " + name_;\n\tsystem(command.c_str());/g' src/modules/wlr/workspace_manager.cpp
-    #        '';
-    #        mesonFlags = old.mesonFlags ++ [ "-Dexperimental=true" ];
-    #      });
-    #
-
 
     shadowsocks-rust = prev.shadowsocks-rust.overrideAttrs (old: rec {
       version = "1.15.0-alpha.8";

@@ -4,9 +4,10 @@
   # programs.vscode.package = pkgs.vscode.fhsWithPackages (ps: with ps; [ rustup zlib gdb]);
   
   environment.systemPackages = with pkgs; [
+    dotnet-runtime
+    gtk3
     nautilus-open-any-terminal
     unar
-    # foot
     helix
     libtiff
     nasm
@@ -18,13 +19,8 @@
     jdk8
     jdk11
     jdk17
-    # filezilla
-    # nur.repos.linyinfeng.icalingua-plus-plus
-    # aegisub
     razergenie
-    # sage
-    # chromium
-    # burpsuite
+    burpsuite
     easyeffects  
     input-remapper
     cargo-binutils
@@ -33,21 +29,16 @@
     #amdvlk
     john
     ascii
-    
-    #vulkan-loader
     packer
     # vagrant
     unrar
     xorriso
     libguestfs
     p7zip
-    #python310Packages.pwntools
-    #python310Packages.cryptography
     lm_sensors
     mesa
     vulkan-tools
     steam-run
-    # cudaPackages.cudatoolkit
     dos2unix
     glib
     glibc
@@ -57,7 +48,6 @@
     autoconf automake curl libmpc mpfr gmp gawk bison flex texinfo gperf libtool patchutils bc expat gnum4
     
     openal
-    # qt5.full
     qt6.full
     zlib.dev
     zlib
@@ -73,26 +63,20 @@
     gnomeExtensions.improved-workspace-indicator
     gnomeExtensions.forge
     gnomeExtensions.tiling-assistant
-    # gnomeExtensions.resource-monitor
     gnomeExtensions.clipboard-indicator
     gnomeExtensions.gsconnect
     gnomeExtensions.just-perfection
     
     flatpak
-    
-    # nur.repos.ocfox.gtk-qq
     gtk4
     libadwaita
     
     xdotool
     gparted
-    # chrome-gnome-shell
     gnome-browser-connector
     editorconfig-checker
-    # KVM
     virt-manager
     doas
-    # common
     hexyl
     jq
     fx
@@ -100,10 +84,7 @@
     choose
     duf
     procs
-    # httpie
     dog
-
-
     arti
     onefetch
     snapper

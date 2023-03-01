@@ -3,6 +3,7 @@
 , ...
 }: {
   networking = {
+
     hostName = "frnks"; # Define your hostname.
     # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
     # The global useDHCP flag is deprecated, therefore explicitly set to false here.
@@ -29,5 +30,8 @@
       allowedTCPPortRanges = [ {from = 1716; to = 1764;} ];
       allowedUDPPortRanges = [ {from = 1716; to = 1764;} ];
     };
+      extraHosts =''
+    127.0.0.1 www.sweetscape.com
+    '';
   };
 }

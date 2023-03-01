@@ -25,14 +25,10 @@ let
     ../services.nix
     {
       environment.systemPackages = with inputs; [
-        alejandra.defaultPackage.${system}
-        # agenix.defaultPackage.${system}
-        # helix.packages.${system}.default
       ];
     }
   ] ++ (with inputs;[
 
-    # agenix.nixosModules
     grub2-themes.nixosModules.default
     home-manager.nixosModules.home-manager
 

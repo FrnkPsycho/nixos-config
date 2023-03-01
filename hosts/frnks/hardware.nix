@@ -37,52 +37,13 @@
     { device = "/dev/disk/by-uuid/3012-5FA2";
       fsType = "vfat";
     };
-  
-  # fileSystems."/swap".options = [ "noatime" ];
 
   swapDevices = [ { device = "/swap/swapfile"; } ];
 
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-  # hardware.firmware = [ pkgs.rtw89-firmware ];
+  hardware.video.hidpi.enable = true;
   hardware.openrazer.enable = true;
-  
-  
   hardware.bluetooth.enable = true;
-  # hardware.bluetooth.hsphfpd.enable = true;
-  # Pipewire config
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    # No idea if I need this
-    alsa.support32Bit = true;
-    pulse.enable = true;
-
-    # High quality BT calls
-    media-session.config.bluez-monitor.rules = [
-      {
-        # Matches all cards
-        matches = [{ "device.name" = "~bluez_card.*"; }];
-        actions = {
-          "update-props" = {
-            "bluez5.auto-connect" = [ "a2dp_sink" ];
-          };
-        };
-      }
-      {
-        matches = [
-          # Matches all sources
-          { "node.name" = "~bluez_input.*"; }
-          # Matches all outputs
-          { "node.name" = "~bluez_output.*"; }
-        ];
-        actions = {
-          "node.pause-on-idle" = false;
-        };
-      }
-    ];
-  };
-  # users.users.frnks.extraGroups = [ "plugdev" ];
-  # hardware.pulseaudio.enable = false;
 }

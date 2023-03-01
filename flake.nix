@@ -20,7 +20,6 @@
     flake-utils.url = github:numtide/flake-utils;
     nix-colors.url = github:misterio77/nix-colors;
     mach-nix.url = github:DavHau/mach-nix;
-    # agenix.url = github:ryantm/agenix;
     nur.url = github:nix-community/NUR;
     nur-pkgs = {
       url = github:oluceps/nur-pkgs;
@@ -36,12 +35,12 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    sops-nix.url = github:Mic92/sops-nix;
+    # sops-nix.url = github:Mic92/sops-nix;
 
-    pywmpkg = {
-      url = github:jbuchermn/pywm;
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
+    # pywmpkg = {
+    #   url = github:jbuchermn/pywm;
+    #   inputs.nixpkgs.follows = "nixpkgs-unstable";
+    # };
 
     home-manager = {
       url = github:nix-community/home-manager/master;
@@ -49,28 +48,28 @@
     };
 
 
-    nix-matlab = {
-      # Recommended if you also override the default nixpkgs flake, common among
-      # nixos-unstable users:
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-      url = gitlab:doronbehar/nix-matlab;
-    };
+    # nix-matlab = {
+    #   # Recommended if you also override the default nixpkgs flake, common among
+    #   # nixos-unstable users:
+    #   inputs.nixpkgs.follows = "nixpkgs-unstable";
+    #   url = gitlab:doronbehar/nix-matlab;
+    # };
 
     helix = {
       url = github:helix-editor/helix;
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     
-    hyprland = {
-      url = github:hyprwm/Hyprland;
-      # build with your own instance of nixpkgs
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
+    # hyprland = {
+    #   url = github:hyprwm/Hyprland;
+    #   # build with your own instance of nixpkgs
+    #   inputs.nixpkgs.follows = "nixpkgs-unstable";
+    # };
     #
-    gomod2nix = {
-      url = github:tweag/gomod2nix;
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
+    # gomod2nix = {
+    #   url = github:tweag/gomod2nix;
+    #   inputs.nixpkgs.follows = "nixpkgs-unstable";
+    # };
     grub2-themes.url = github:vinceliuice/grub2-themes;
   };
 
