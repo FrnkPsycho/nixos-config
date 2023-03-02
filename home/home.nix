@@ -37,7 +37,7 @@
     qq
     lutris
     baobab
-    libreoffice
+    libreoffice-fresh
     prismlauncher
     minder
     mpv

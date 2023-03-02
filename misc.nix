@@ -166,9 +166,9 @@
   };
   
   i18n.inputMethod = {
-    enabled = "ibus";
-    ibus.panel = "${pkgs.plasma5Packages.plasma-desktop}/lib/libexec/kimpanel-ibus-panel";
-    # enabled = "fcitx5";
+    # enabled = "ibus";
+    # ibus.panel = "${pkgs.plasma5Packages.plasma-desktop}/lib/libexec/kimpanel-ibus-panel";
+    enabled = "fcitx5";
     ibus.engines = with pkgs.ibus-engines; [
       libpinyin
       typing-booster

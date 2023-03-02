@@ -12,14 +12,7 @@ flake outputs:
 github:frnkpsycho/nixos-config/22337a8c53fcb31eb9c5109b67bed9ed4fdc1269
 └───nixosConfigurations
     ├───frnks: NixOS configuration
-    ├───hastur: NixOS configuration
-    └───kaambl: NixOS configuration
 ```  
-
-### NixOS Deployment
-
-```console
-nixos-rebuild switch --flake github:frnkpsycho/nixos-config#frnks
   
 ```
 |Type|Program|
