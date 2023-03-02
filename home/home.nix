@@ -84,8 +84,6 @@
     # wayfire
 
     btop
-
-    # neovim-qt
     smartmontools
     wireshark-qt
     wezterm
@@ -97,7 +95,6 @@
     netease-cloud-music-gtk
     # cmatrix
     termius
-    #kotatogram-desktop
     autojump
     nmap
     lm_sensors
@@ -106,9 +103,7 @@
     # picom
 
     feh
-    # pamixer
     sl
-    # ncpamixer
     starship
     # texlive.
     # texlive.combined.scheme-full
@@ -123,18 +118,11 @@
     # jetbrains.phpstorm
     # jetbrains.webstorm
     jetbrains.idea-ultimate
-    # bspwm
-    # sxhkd
+
     tdesktop
-    
-    # file
-    # julia-bin
-    # tree
   ];
   in
   list1 ++ list2;
-  
-  # home.packages = brokenTempList ++ normalList;
   
   home.pointerCursor = {
     gtk.enable = true;
@@ -154,23 +142,8 @@
 
     #    ".config/ranger/rc.conf".source = ./dotfiles/ranger/rc.conf;
   };
-  services.swayidle = {
-    enable = false;
-    timeouts = [
-      # {
-      #   timeout = 300;
-      #   command = "${pkgs.sway}/bin/swaymsg 'output * dmps off'";
-      #   resumeCommand = "${pkgs.sway}/bin/swaymsg 'output * dmps on'";
-      # }
-      {
-        timeout = 1200;
-        command = "${pkgs.systemd}/bin/systemctl suspend";
-      }
-    ];
-  };
 
   programs = {
-    
     vscode = {
       enable = true;
       package = pkgs.vscode.fhs;
@@ -183,26 +156,7 @@
       userName = "frnkpsycho";
       userEmail = "frnkpsycho@gmail.com";
     };
-    swaylock.settings = {
-      show-failed-attempts = true;
-      daemonize = true;
-      image =
-        let
-          img = pkgs.fetchurl {
-            url = "https://maxwell.ydns.eu/git/rnhmjoj/nix-slim/raw/branch/master/background.png";
-            name = "img.jpg";
-            hash = "sha256-kqvVGHOaD7shJrvYfhLDvDs62r20wi8Sajth16Spsrk=";
-          };
-          #img-blurred = pkgs.runCommand "img.jpg"
-          #            {
-          #              nativeBuildInputs = with pkgs;[ imagemagick ];
-          #            } "
-          # convert -blur 14x5 ${img} $out
-          # ";
-        in
-        "${img}";
-      scaling = "fill";
-    };
+
     mako = {
       enable = true;
       backgroundColor = "#1E1D2F3b";
@@ -334,73 +288,8 @@
         "--exact"
       ];
     };
-
-    #    neovim = {
-    #      enable = true;
-    #      vimAlias = true;
-    #      vimdiffAlias = true;
-    #      plugins = with pkgs.vimPlugins; [
-    #        telescope-nvim
-    #        nvim-lspconfig
-    #        fidget-nvim
-    #        nvim-cmp
-    #        catppuccin-nvim
-    #        cmp-nvim-lsp
-    #        indent-blankline-nvim
-    #        everforest
-    #        luasnip
-    #        vim-lastplace
-    #        which-key-nvim
-    #        editorconfig-nvim
-    #        lualine-nvim
-    #        lspsaga-nvim
-    #        lualine-lsp-progress
-    #        #vim-wakatime
-    #        vimspector
-    #        nvim-notify
-    #        nvim-dap
-    #        nvim-dap-ui
-    #        rust-tools-nvim
-    #        nerdtree
-    #        surround
-    #        auto-pairs
-    #        nvim-ts-rainbow
-    #        nvim-treesitter-context
-    #        dashboard-nvim
-    #        null-ls-nvim
-    #        lspkind-nvim
-    #        cmp-treesitter
-    #        (nvim-treesitter.withPlugins (
-    #          plugins: with plugins; [
-    #            tree-sitter-nix
-    #            tree-sitter-lua
-    #            tree-sitter-rust
-    #            tree-sitter-go
-    #
-    #          ]
-    #        ))
-    #      ]; #
-    #      #extraConfig = ''
-    #      #
-    #      #        set viminfo+=n${config.xdg.stateHome}/viminfo
-    #      #        lua << EOT
-    #      #        ${builtins.readFile ../modules/nvim.lua}
-    #      #        EOT
-    #      #      '';
-    #    };
-    #nushell = {
-    #  enable = true;
-    #  settings = {
-    #    edit_mode = "vi";
-    #    startup = [ "alias la [] { ls -a }" "alias e [msg] { echo $msg }" "alias nd {cd /etc/nixos}"];
-    #    completion_mode = "circular";
-    #    no_auto_pivot = true;
-    #  };
-    #};
-    #
   };
-  #xdg.configFile."sway/config".text = import ./dotfiles/sway/config.nix {inherit config pkgs;};
-  #xdg.configFile."ss/config".text = import ./programs/ss.nix {inherit config pkgs;};
+  
   gtk = {
     enable = true;
     theme = {

@@ -30,12 +30,8 @@
     udev.packages = [ pkgs.android-udev-rules pkgs.qmk-udev-rules (pkgs.callPackage ./modules/packs/opensk-udev-rules { }) ];
     gnome.gnome-keyring.enable = true;
 
-    ss = {
-      enable = false;
-    };
 
-    clash =
-      {
+    clash = {
         enable = true;
         # place config.yaml in ~/.config/clash
 
@@ -58,10 +54,6 @@
         #     - 'tcp://any:53'
         #   auto-route: false
       };
-
-    sing-box = {
-      enable = false;
-    };
 
     snapper = {
       snapshotRootOnBoot = true;

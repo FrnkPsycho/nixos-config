@@ -11,7 +11,7 @@ in
     users.${user} = {
       imports = [
         homeProfile
-        inputs.hyprland.homeManagerModules.default
+        # inputs.hyprland.homeManagerModules.default
         #../modules/hyprland
         #        
       ];

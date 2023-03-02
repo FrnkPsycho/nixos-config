@@ -1,15 +1,15 @@
 [
   ./helix
-  ./waybar
+  #./waybar
   ./fish
   # ./sway
   ./chrome
   ./kitty.nix
   ./starship.nix
   ./nnn.nix
-  ./nushell
+  #./nushell
   # ./hyprland
-  ./bspwm
+  #./bspwm
   ./ranger
   ./wezterm
   ./foot

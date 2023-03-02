@@ -18,7 +18,7 @@ services.pipewire = {
     pulse.enable = true;
     config.pipewire = {
       "context.properties" = {
-        "default.clock.rate" = 384000;
+        "default.clock.rate" = 44100;
         "default.clock.allowed-rates" = [ 44100 48000 88200 96000 176000 352800 384000 705600 768000];
         "default.clock.min-quantum" = 16;
       };

@@ -4,7 +4,8 @@
   # programs.vscode.package = pkgs.vscode.fhsWithPackages (ps: with ps; [ rustup zlib gdb]);
   
   environment.systemPackages = with pkgs; [
-    dotnet-runtime
+    dotnet-sdk
+    #dotnet-runtime
     gtk3
     nautilus-open-any-terminal
     unar

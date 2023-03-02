@@ -143,7 +143,7 @@
       vistafonts-cht
     ] ++ (with (pkgs.callPackage ./modules/packs/glowsans/default.nix { }); [ glowsansSC glowsansTC glowsansJ ])
     ++ (with nur-pkgs;[
-     maple-font.Mono-NF-v5
+     # maple-font.Mono-NF-v5
      san-francisco 
      plangothic ]);
 
@@ -166,13 +166,14 @@
   };
   
   i18n.inputMethod = {
-    #enabled = "ibus";
+    enabled = "ibus";
     ibus.panel = "${pkgs.plasma5Packages.plasma-desktop}/lib/libexec/kimpanel-ibus-panel";
-    enabled = "fcitx5";
+    # enabled = "fcitx5";
     ibus.engines = with pkgs.ibus-engines; [
       libpinyin
       typing-booster
       table
+      rime
       table-chinese
       uniemoji
     ];
