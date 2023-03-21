@@ -26,7 +26,7 @@
     networkmanager.dns = "systemd-resolved";
     firewall = {
       enable = true;
-      allowedTCPPorts = [ 7891 80 443 ];
+      allowedTCPPorts = [ 7891 80 443 2234 ];
       allowedTCPPortRanges = [ {from = 1716; to = 1764;} ];
       allowedUDPPortRanges = [ {from = 1716; to = 1764;} ];
     };

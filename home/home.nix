@@ -27,11 +27,21 @@
     system= "x86_64-linux"; 
     config.allowUnfree = true;
   }; in with pkgs; [
-    libtiff
-    wpsoffice-cn
+    #libtiff
+    #wpsoffice-cn
   ];
 
   list2 = with pkgs; [
+    my-nur-pkgs.idafree
+    kchmviewer
+    scanmem
+    autokey
+    qbittorrent
+    wpsoffice
+    iaito
+    picard
+    nur.repos.xddxdd.baidupcs-go
+    nur.repos.xddxdd.svp
     audacious
     audacious-plugins
     qq
@@ -114,7 +124,7 @@
     # jetbrains.clion
     # jetbrains.goland
     # jetbrains.pycharm-professional
-    # jetbrains.datagrip
+    jetbrains.datagrip
     # jetbrains.phpstorm
     # jetbrains.webstorm
     jetbrains.idea-ultimate
@@ -157,16 +167,16 @@
       userEmail = "frnkpsycho@gmail.com";
     };
 
-    mako = {
-      enable = true;
-      backgroundColor = "#1E1D2F3b";
-      borderSize = 1;
-      borderColor = "#96CDFB3b";
-      maxVisible = 2;
-      borderRadius = 12;
-      defaultTimeout = 5000;
-      font = "JetBrainsMono Nerd Font 12";
-    };
+    #mako = {
+    #  enable = false;
+    #  backgroundColor = "#1E1D2F3b";
+    #  borderSize = 1;
+    #  borderColor = "#96CDFB3b";
+    #  maxVisible = 2;
+    #  borderRadius = 12;
+    #  defaultTimeout = 5000;
+    #  font = "JetBrainsMono Nerd Font 12";
+    # };
     zsh = {
       enable = true;
       shellAliases = {

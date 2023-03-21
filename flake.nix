@@ -25,6 +25,11 @@
       url = github:oluceps/nur-pkgs;
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+    my-nur-pkgs = {
+      url = github:frnkpsycho/nurpkgs;
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      
+    };
     
     clash-meta = {
       url = github:FrnkPsycho/Clash.Meta/Alpha;

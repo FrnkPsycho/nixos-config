@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/nix/store/2jk16rmc83nyvqdsnqml2p623wc37nkp-pwndbg-2022.12.19/share/pwndbg/gdbinit.py", line 84, in <module>
+    import pwndbg  # noqa: F401
+  File "/nix/store/2jk16rmc83nyvqdsnqml2p623wc37nkp-pwndbg-2022.12.19/share/pwndbg/pwndbg/__init__.py", line 11, in <module>
+    load_commands()
+  File "/nix/store/2jk16rmc83nyvqdsnqml2p623wc37nkp-pwndbg-2022.12.19/share/pwndbg/pwndbg/commands/__init__.py", line 515, in load_commands
+    import pwndbg.commands.aslr
+  File "/nix/store/2jk16rmc83nyvqdsnqml2p623wc37nkp-pwndbg-2022.12.19/share/pwndbg/pwndbg/commands/aslr.py", line 29, in <module>
+    def aslr(state=None):
+  File "/nix/store/2jk16rmc83nyvqdsnqml2p623wc37nkp-pwndbg-2022.12.19/share/pwndbg/pwndbg/commands/__init__.py", line 457, in __call__
+    return _ArgparsedCommand(self.parser, function, command_name=self._command_name)
+  File "/nix/store/2jk16rmc83nyvqdsnqml2p623wc37nkp-pwndbg-2022.12.19/share/pwndbg/pwndbg/commands/__init__.py", line 423, in __init__
+    super(_ArgparsedCommand, self).__init__(function, command_name=command_name, *a, **kw)
+  File "/nix/store/2jk16rmc83nyvqdsnqml2p623wc37nkp-pwndbg-2022.12.19/share/pwndbg/pwndbg/commands/__init__.py", line 72, in __init__
+    raise Exception('Cannot override non-whitelisted built-in command "%s"' % command_name)
+Exception: Cannot override non-whitelisted built-in command "aslr"

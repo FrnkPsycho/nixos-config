@@ -4,6 +4,15 @@
   # programs.vscode.package = pkgs.vscode.fhsWithPackages (ps: with ps; [ rustup zlib gdb]);
   
   environment.systemPackages = with pkgs; [
+    nix-prefetch-git
+    readline
+    intltool
+    pwndbg
+    glfw
+    # llvmPackages_15.openmp
+    pkg-config
+    #libsecret.out
+    alejandra
     dotnet-sdk
     #dotnet-runtime
     gtk3
@@ -50,6 +59,7 @@
     
     openal
     qt6.full
+    # qt5.full
     zlib.dev
     zlib
     vistafonts-chs
@@ -202,6 +212,7 @@
     (
       python310.withPackages
         (p: with p;[
+          pygobject3
           pyperclip
           # black
           setuptools
@@ -217,7 +228,7 @@
           pwntools
           # maskpass
           
-          wordcloud
+          # wordcloud
           qrcode
           matplotlib
           # pylsp-mypy
