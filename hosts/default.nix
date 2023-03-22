@@ -10,6 +10,7 @@ let
     overlays = [
       (final: prev: {
         nur-pkgs = inputs.nur-pkgs.packages."${prev.system}";
+        my-nur-pkgs = inputs.my-nur-pkgs.packages."${prev.system}";
       })
       inputs.nur.overlay
     ] ++ (import ../overlay.nix inputs);
