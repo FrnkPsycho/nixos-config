@@ -31,6 +31,7 @@
     "steam-original"
     "steam-runtime"
   ];
+  #my-nur-pkgs.config.allowUnfree = true;
   nixpkgs.config.allowUnfree = true;
   virtualisation = {
     docker.enable = true;
@@ -41,10 +42,11 @@
       enable = true;
       layout = "us";
       xkbOptions = "eurosign:e";
+      dpi = 96;
       desktopManager.gnome.enable = true;
       displayManager.gdm = {
         enable = true;
-        wayland = true;
+        wayland = false;
       };
     };
   zramSwap = {
@@ -66,7 +68,7 @@
       package = config.boot.kernelPackages.nvidiaPackages.stable;
       nvidiaPersistenced = true;
       modesetting = {
-        enable = true;
+        enable = false;
       };
       powerManagement = {
         enable = true;

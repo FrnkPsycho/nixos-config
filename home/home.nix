@@ -14,6 +14,8 @@
   home.stateVersion = "22.11";
   home.sessionVariables = {
     EDITOR = "hx";
+    TERMINAL = "wezterm";
+    BROWSER = "firefox";
   };
 
   manual = {
@@ -23,18 +25,24 @@
   };
 
   home.packages = let
-  list1 = let pkgs = import inputs.nixpkgs-tempwps { 
-    system= "x86_64-linux"; 
-    config.allowUnfree = true;
+  list1 = let pkgs = import inputs.my-nur-pkgs { 
+    #system= "x86_64-linux"; 
+    #config.allowUnfree = true;
   }; in with pkgs; [
+    idafree
+    #gameconqueror
+    #quake3-data
     #libtiff
     #wpsoffice-cn
   ];
 
   list2 = with pkgs; [
-    my-nur-pkgs.idafree
+    blockbench-electron
+    discord
+    # mpris-scrobbler
+    aseprite
     kchmviewer
-    scanmem
+    # scanmem
     autokey
     qbittorrent
     wpsoffice
@@ -116,9 +124,9 @@
     sl
     starship
     # texlive.
-    # texlive.combined.scheme-full
+    texlive.combined.scheme-full
     vlc
-    firefox-wayland
+    # firefox-wayland
     bluedevil
     #zathura
     # jetbrains.clion
@@ -154,6 +162,7 @@
   };
 
   programs = {
+    firefox.enable = true;
     vscode = {
       enable = true;
       package = pkgs.vscode.fhs;

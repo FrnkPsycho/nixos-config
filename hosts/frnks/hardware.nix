@@ -41,7 +41,7 @@
   swapDevices = [ { device = "/swap/swapfile"; } ];
 
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-  hardware.video.hidpi.enable = true;
+  # hardware.video.hidpi.enable = true;
   hardware.openrazer.enable = true;
   hardware.bluetooth.enable = true;
   hardware.pulseaudio.enable = false;

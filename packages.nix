@@ -1,9 +1,20 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   # programs.ghc.package = pkgs.ghc.withPackages (hp: with hp; [ zlib ]);
   # programs.vscode.package = pkgs.vscode.fhsWithPackages (ps: with ps; [ rustup zlib gdb]);
   
   environment.systemPackages = with pkgs; [
+    (fenix.complete.withComponents [
+      "cargo"
+      "clippy"
+      "rust-src"
+      "rustc"
+      "rustfmt"
+    ])
+    binwalk
+    pandoc
+    gobject-introspection
+    my-nur-pkgs.gameconqueror
     nix-prefetch-git
     readline
     intltool
@@ -120,7 +131,7 @@
 
     shfmt
     broot
-    rust-analyzer
+    rust-analyzer-nightly
     pyright
     rnix-lsp
     kotlin-language-server
@@ -212,6 +223,7 @@
     (
       python310.withPackages
         (p: with p;[
+          minidump
           pygobject3
           pyperclip
           # black

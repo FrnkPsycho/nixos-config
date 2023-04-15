@@ -18,6 +18,7 @@
   };
 
   security.rtkit.enable = true;
+  security.polkit.enable = true;
   security.pam.u2f.enable = true;
 
   services = {

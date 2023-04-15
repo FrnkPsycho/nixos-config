@@ -26,7 +26,7 @@
         
       ];
     };
-    users.root.shell = pkgs.zsh;
+    users.root.shell = pkgs.bash;
 
     users.proxy = {
       isSystemUser = true;

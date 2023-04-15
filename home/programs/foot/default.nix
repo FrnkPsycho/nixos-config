@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   programs.foot = {
-    enable = true;
+    enable = false;
     settings = {
       main = {
         font = "SF Mono:size=10:style=Medium";

@@ -26,9 +26,13 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     my-nur-pkgs = {
-      url = github:frnkpsycho/nurpkgs;
+      url = github:FrnkPsycho/nurpkgs;
       inputs.nixpkgs.follows = "nixpkgs-unstable";
       
+    };
+    suhr-nur-packages = {
+      url = github:suhr/nur-packages;
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     
     clash-meta = {
@@ -37,6 +41,11 @@
 
     alejandra = {
       url = github:kamadorueda/alejandra;
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
+    fenix = {
+      url = github:nix-community/fenix;
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
