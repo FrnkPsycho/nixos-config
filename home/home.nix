@@ -107,7 +107,7 @@
     wezterm
     android-tools
     tor-browser-bundle-bin
-    cargo-cross
+    # cargo-cross
     # android-studio
     zellij
     netease-cloud-music-gtk

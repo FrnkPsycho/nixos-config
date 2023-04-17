@@ -17,6 +17,7 @@
   nixpkgs.config.chromium.commandLineArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland";
   nixpkgs.config.permittedInsecurePackages = [
     "qtwebkit-5.212.0-alpha4"
+    "electron-21.4.0"
   ];
   
   programs.gamemode.enable = true;

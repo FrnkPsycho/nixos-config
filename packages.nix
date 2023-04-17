@@ -4,13 +4,13 @@
   # programs.vscode.package = pkgs.vscode.fhsWithPackages (ps: with ps; [ rustup zlib gdb]);
   
   environment.systemPackages = with pkgs; [
-    (fenix.complete.withComponents [
-      "cargo"
-      "clippy"
-      "rust-src"
-      "rustc"
-      "rustfmt"
-    ])
+    #(fenix.complete.withComponents [
+    #  "cargo"
+    #  "clippy"
+    #  "rust-src"
+    #  "rustc"
+    #  "rustfmt"
+    #])
     binwalk
     pandoc
     gobject-introspection
@@ -44,7 +44,7 @@
     burpsuite
     easyeffects  
     input-remapper
-    cargo-binutils
+    # cargo-binutils
     virtiofsd
     vulkan-caps-viewer
     #amdvlk
@@ -131,7 +131,7 @@
 
     shfmt
     broot
-    rust-analyzer-nightly
+    rust-analyzer
     pyright
     rnix-lsp
     kotlin-language-server
