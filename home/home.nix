@@ -37,6 +37,7 @@
   ];
 
   list2 = with pkgs; [
+    # helix
     blockbench-electron
     discord
     # mpris-scrobbler

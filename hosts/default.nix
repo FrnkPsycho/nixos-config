@@ -6,7 +6,10 @@ let
   pkgs = import inputs.nixpkgs-unstable {
     inherit system;
     config.allowUnfree = true;
-    config.permittedInsecurePackages = [ "qtwebkit-5.212.0-alpha4" ];
+    config.permittedInsecurePackages = [ 
+      "qtwebkit-5.212.0-alpha4"
+      "electron-21.4.0"
+    ];
     overlays = [
       (final: prev: {
         nur-pkgs = inputs.nur-pkgs.packages."${prev.system}";

@@ -11,7 +11,8 @@
 
   programs.helix = {
     enable = true;
-    package = inputs.helix.packages.${system}.default;
+    #package = inputs.helix.packages.${system}.default;
+    package = pkgs.helix;    
 
     settings = {
       theme = "catppuccin_macchiato";

@@ -44,10 +44,10 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    fenix = {
-      url = github:nix-community/fenix;
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
+    #fenix = {
+    #  url = github:nix-community/fenix;
+    #  inputs.nixpkgs.follows = "nixpkgs-unstable";
+    #};
 
     # sops-nix.url = github:Mic92/sops-nix;
 
@@ -69,10 +69,10 @@
     #   url = gitlab:doronbehar/nix-matlab;
     # };
 
-    helix = {
-      url = github:helix-editor/helix;
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
+    #helix = {
+    #  url = github:helix-editor/helix;
+    #  inputs.nixpkgs.follows = "nixpkgs-unstable";
+    #};
     
     # hyprland = {
     #   url = github:hyprwm/Hyprland;

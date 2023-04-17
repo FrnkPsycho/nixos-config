@@ -29,7 +29,7 @@
     gtk3
     nautilus-open-any-terminal
     unar
-    helix
+    # helix
     libtiff
     nasm
     file
@@ -79,7 +79,8 @@
     corefonts
     
     gnomeExtensions.transparent-top-bar
-    gnomeExtensions.dock-from-dash
+    # gnomeExtensions.dock-from-dash
+    gnomeExtensions.dash-to-dock
     gnomeExtensions.system-monitor-next
     gnomeExtensions.arcmenu
     gnomeExtensions.improved-workspace-indicator

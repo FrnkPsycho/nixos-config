@@ -11,9 +11,7 @@ in
     users.${user} = {
       imports = [
         homeProfile
-        # inputs.hyprland.homeManagerModules.default
-        #../modules/hyprland
-        #        
+        # inputs.hyprland.homeManagerModules.default        
       ];
     };
     extraSpecialArgs = { inherit inputs system user; };
