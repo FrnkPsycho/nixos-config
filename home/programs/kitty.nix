@@ -6,11 +6,11 @@
   programs.kitty = {
     enable = true;
     font = {
-      name = "Fira Code Medium";
+      name = "FiraCode Nerd Font Mono";
       size = 11;
     };
     settings = {
-      background_opacity = "0.65";
+      background_opacity = "0.90";
       confirm_os_window_close = "0";
     };
 

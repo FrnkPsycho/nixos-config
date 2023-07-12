@@ -7,7 +7,7 @@
 
   dconf.settings = {
     "org/gnome/mutter" = {
-      experimental-features = [ "scale-moniter-framebuffer"];
+      experimental-features = [ "scale-moniter-framebuffer" "x11-randr-fractional-scaling"];
     };
   };
   imports = import ./programs;
@@ -30,6 +30,7 @@
     #config.allowUnfree = true;
   }; in with pkgs; [
     idafree
+    #prismlauncher
     #gameconqueror
     #quake3-data
     #libtiff
@@ -37,7 +38,15 @@
   ];
 
   list2 = with pkgs; [
+    android-studio
+    scrcpy
+    firefox
+    dolphin-emu
     # helix
+    gzdoom
+    mangohud
+    #goverlay
+    #retroarchFull
     blockbench-electron
     discord
     # mpris-scrobbler
@@ -67,7 +76,7 @@
     # wpsoffice-cn
     nur.repos.linyinfeng.wemeet
     nur.repos.YisuiMilena.hmcl-bin
-    nur.repos.linyinfeng.icalingua-plus-plus
+    # nur.repos.linyinfeng.icalingua-plus-plus
     spice-vdagent
     spice
     radare2
@@ -78,7 +87,7 @@
     obsidian
     gnome.nautilus
     gnome.eog
-    gnomecast
+    # gnomecast
     thunderbird
     tetrio-desktop
     ffmpeg_5-full
@@ -125,7 +134,7 @@
     sl
     starship
     # texlive.
-    texlive.combined.scheme-full
+    # texlive.combined.scheme-full
     vlc
     # firefox-wayland
     bluedevil
@@ -148,7 +157,7 @@
     x11.enable = true;
     package = pkgs.nur-pkgs.Graphite-cursors; #callPackage ../modules/packs/Graphite-cursors { };
     name = "Graphite-light-nord";
-    size = 22;
+    size = 18;
   };
 
 
@@ -163,7 +172,7 @@
   };
 
   programs = {
-    firefox.enable = true;
+    # firefox.enable = true;
     vscode = {
       enable = true;
       package = pkgs.vscode.fhs;
@@ -314,7 +323,7 @@
     enable = true;
     theme = {
       package = pkgs.materia-theme;
-      name = "Materia-light";
+      name = "Adwaita";
     };
 
     iconTheme = {

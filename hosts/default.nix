@@ -9,6 +9,8 @@ let
     config.permittedInsecurePackages = [ 
       "qtwebkit-5.212.0-alpha4"
       "electron-21.4.0"
+      "openssl-1.1.1t"
+      "openssl-1.1.1u"
     ];
     overlays = [
       (final: prev: {

@@ -12,8 +12,8 @@
 
   services.dbus.enable = true;
   programs.xwayland.enable = true;
+  programs.adb.enable = true;
 
-  
   nixpkgs.config.chromium.commandLineArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland";
   nixpkgs.config.permittedInsecurePackages = [
     "qtwebkit-5.212.0-alpha4"
@@ -25,6 +25,10 @@
     enable = true;
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+  };
+  programs.java = {
+    enable = true;
+    package = pkgs.jdk17;
   };
   
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
@@ -44,10 +48,13 @@
       layout = "us";
       xkbOptions = "eurosign:e";
       dpi = 96;
-      desktopManager.gnome.enable = true;
+      desktopManager.gnome = {
+        enable = true;
+        extraGSettingsOverridePackages = [ pkgs.gnome.mutter ];
+      };
       displayManager.gdm = {
         enable = true;
-        wayland = false;
+        wayland = true;
       };
     };
   zramSwap = {
@@ -69,12 +76,12 @@
       package = config.boot.kernelPackages.nvidiaPackages.stable;
       nvidiaPersistenced = true;
       modesetting = {
-        enable = false;
+        enable = true;
       };
       powerManagement = {
         enable = true;
       };
-      # open = true;
+      open = false;
     };
   };
 
@@ -91,7 +98,7 @@
         "https://nur-pkgs.cachix.org"
       ];
       auto-optimise-store = true;
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [ "nix-command" "flakes" "ca-derivations" ];
       trusted-users = [ "root" "frnks" ];
     };
   };
@@ -99,6 +106,8 @@
   environment.shellInit = ''
     gpg-connect-agent /bye
     export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+
+    export LD_LIBRARY_PATH=nix/store/j9hs7k46nardb3ri8d1h8qw09csy7cia-libXtst-1.2.3/lib:$LD_LIBRARY_PATH
   '';
   # Set your time zone.
   time.timeZone = "Asia/Shanghai";
@@ -154,7 +163,6 @@
       antialias = true;
       hinting = {
         enable = false;
-        style = "hintnone";
       };
       subpixel = {
         lcdfilter = "light";

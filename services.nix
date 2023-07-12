@@ -22,6 +22,8 @@
   security.pam.u2f.enable = true;
 
   services = {
+  # autorandr.enable = true;
+  #  gvfs.enable = true;
     earlyoom = {
       enable = true;
       freeMemThreshold = 5;
@@ -63,30 +65,24 @@
       configs = {
 
         root = {
-          subvolume = "/";
-          extraConfig = ''
-            ALLOW_USERS="${user}"
-            TIMELINE_CREATE=yes
-            TIMELINE_CLEANUP=yes
-          '';
+          SUBVOLUME = "/";
+          ALLOW_USERS= ["${user}"];
+          TIMELINE_CREATE=true;
+          TIMELINE_CLEANUP=true;
         };
 
         home = {
-          subvolume = "/home";
-          extraConfig = ''
-            ALLOW_USERS="${user}"
-            TIMELINE_CREATE=yes
-            TIMELINE_CLEANUP=yes
-          '';
+          SUBVOLUME = "/home";
+          ALLOW_USERS= [ "${user}" ];
+          TIMELINE_CREATE=true;
+          TIMELINE_CLEANUP=true;
         };
 
         nix = {
-          subvolume = "/nix";
-          extraConfig = ''
-            ALLOW_USERS="${user}"
-            TIMELINE_CREATE=yes
-            TIMELINE_CLEANUP=yes
-          '';
+          SUBVOLUME = "/nix";
+          ALLOW_USERS= [ "${user}" ];
+          TIMELINE_CREATE=true;
+          TIMELINE_CLEANUP=true;
         };
       };
     };

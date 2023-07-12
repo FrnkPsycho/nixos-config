@@ -11,6 +11,16 @@
     #  "rustc"
     #  "rustfmt"
     #])
+    # sage
+    android-tools
+    php81
+    nzbget
+    innoextract
+    vkbasalt-cli
+    amule
+    gmtp
+    javaPackages.openjfx17
+    xorg.xprop
     binwalk
     pandoc
     gobject-introspection
@@ -24,7 +34,7 @@
     pkg-config
     #libsecret.out
     alejandra
-    dotnet-sdk
+    #dotnet-sdk
     #dotnet-runtime
     gtk3
     nautilus-open-any-terminal
@@ -78,7 +88,10 @@
     vistafonts
     corefonts
     
+    gnomeExtensions.alttab-mod
     gnomeExtensions.transparent-top-bar
+    gnomeExtensions.pano
+    gnomeExtensions.unite
     # gnomeExtensions.dock-from-dash
     gnomeExtensions.dash-to-dock
     gnomeExtensions.system-monitor-next
