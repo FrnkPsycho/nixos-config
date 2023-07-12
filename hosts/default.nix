@@ -29,6 +29,7 @@ let
     ../packages.nix
     ../sysvars.nix
     ../services.nix
+    ../programs.nix
     {
       environment.systemPackages = with inputs; [
       ];

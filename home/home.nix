@@ -7,7 +7,7 @@
 
   dconf.settings = {
     "org/gnome/mutter" = {
-      experimental-features = [ "scale-moniter-framebuffer" "x11-randr-fractional-scaling"];
+      experimental-features = [ "scale-moniter-framebuffer" ];
     };
   };
   imports = import ./programs;

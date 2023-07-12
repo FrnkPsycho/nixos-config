@@ -11,7 +11,7 @@
  {
 
   services.dbus.enable = true;
-  programs.xwayland.enable = true;
+  programs.xwayland.enable = false;
   programs.adb.enable = true;
 
   nixpkgs.config.chromium.commandLineArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland";
@@ -47,14 +47,13 @@
       enable = true;
       layout = "us";
       xkbOptions = "eurosign:e";
-      dpi = 96;
       desktopManager.gnome = {
         enable = true;
         extraGSettingsOverridePackages = [ pkgs.gnome.mutter ];
       };
       displayManager.gdm = {
         enable = true;
-        wayland = true;
+        wayland = false;
       };
     };
   zramSwap = {
@@ -76,7 +75,7 @@
       package = config.boot.kernelPackages.nvidiaPackages.stable;
       nvidiaPersistenced = true;
       modesetting = {
-        enable = true;
+        enable = false;
       };
       powerManagement = {
         enable = true;
@@ -148,8 +147,8 @@
       twemoji-color-font
       liberation_ttf
       corefonts
-      wqy_zenhei
-      wqy_microhei
+      #wqy_zenhei
+      #wqy_microhei
       vistafonts
       vistafonts-chs
       vistafonts-cht
@@ -168,9 +167,9 @@
         lcdfilter = "light";
       };
       defaultFonts = {
-        serif = [ "Glow Sans SC" "Glow Sans TC" "Glow Sans J" "Noto Serif" "Noto Serif CJK SC" "Noto Serif CJK TC" "Noto Serif CJK JP" ];
+        serif = [ "Glow Sans SC" "Glow Sans TC" "Glow Sans J" "Noto Serif" "Noto Serif CJK SC" "Noto Serif CJK TC" "Noto Serif CJK JP" "Noto Serif CJK KR" ];
         monospace = [ "SF Mono" ];
-        sansSerif = [ "Glow Sans SC" "Glow Sans TC" "Glow Sans J" "SF Pro Text" ];
+        sansSerif = [ "Glow Sans SC" "Glow Sans TC" "Glow Sans J" "Noto Sans KR" "SF Pro Text" ];
         emoji = [ "twemoji-color-font" "noto-fonts-emoji" ];
       };
     };
