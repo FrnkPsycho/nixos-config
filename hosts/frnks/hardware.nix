@@ -40,13 +40,35 @@
 
   swapDevices = [ { device = "/swap/swapfile"; } ];
 
-  # hardware.nvidia.forceFullCompositionPipeline = true;
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-  # hardware.video.hidpi.enable = true;
-  hardware.openrazer.enable = true;
-  hardware.bluetooth.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
+  };
+
+  hardware = {
+      nvidia = {
+        package = config.boot.kernelPackages.nvidiaPackages.stable;
+        open = false;
+        nvidiaPersistenced = true;
+        modesetting.enable = false;
+        powerManagement.enable = true;
+        # forceFullCompositionPipeline = true;
+      };
+
+      opengl = {
+        enable = true;
+        driSupport = true;
+        driSupport32Bit = true;
+        extraPackages = [ pkgs.mesa.drivers ];  
+      };
+
+      cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+      openrazer.enable = true;
+      bluetooth.enable = true;
+      pulseaudio.enable = false;
+      
+  };
 
   services.autorandr = {
     enable = true;

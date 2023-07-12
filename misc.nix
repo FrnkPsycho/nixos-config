@@ -10,78 +10,23 @@
 
  {
 
-  services.dbus.enable = true;
-  programs.xwayland.enable = false;
-  programs.adb.enable = true;
-
   nixpkgs.config.chromium.commandLineArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland";
+
   nixpkgs.config.permittedInsecurePackages = [
     "qtwebkit-5.212.0-alpha4"
     "electron-21.4.0"
   ];
-  
-  programs.gamemode.enable = true;
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-  };
-  programs.java = {
-    enable = true;
-    package = pkgs.jdk17;
-  };
-  
+
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "steam"
     "steam-original"
     "steam-runtime"
   ];
-  #my-nur-pkgs.config.allowUnfree = true;
+
   nixpkgs.config.allowUnfree = true;
   virtualisation = {
     docker.enable = true;
     libvirtd.enable = true;
-  };
-  services.xserver =
-    {
-      enable = true;
-      layout = "us";
-      xkbOptions = "eurosign:e";
-      desktopManager.gnome = {
-        enable = true;
-        extraGSettingsOverridePackages = [ pkgs.gnome.mutter ];
-      };
-      displayManager.gdm = {
-        enable = true;
-        wayland = false;
-      };
-    };
-  zramSwap = {
-    enable = true;
-    algorithm = "zstd";
-  };
-  
-  services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-    extraPackages = [ pkgs.mesa.drivers ];  
-  };
-
-  # Optionally, you may need to select the appropriate driver version for your specific GPU.
-  hardware = {
-    nvidia = {
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
-      nvidiaPersistenced = true;
-      modesetting = {
-        enable = false;
-      };
-      powerManagement = {
-        enable = true;
-      };
-      open = false;
-    };
   };
 
   nix = {
@@ -102,28 +47,17 @@
     };
   };
 
-  environment.shellInit = ''
-    gpg-connect-agent /bye
-    export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-
-    export LD_LIBRARY_PATH=nix/store/j9hs7k46nardb3ri8d1h8qw09csy7cia-libXtst-1.2.3/lib:$LD_LIBRARY_PATH
-  '';
   # Set your time zone.
   time.timeZone = "Asia/Shanghai";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-  #i18n.supportedLocales = [ "en_US.UTF-8/UTF-8" "ja_JP.SJIS/SJIS" ];
   
   console = {
     font = "Lat2-Terminus16";
     keyMap = "us";
   };
 
-  programs = {
-    fish.enable = true;
-    dconf.enable = true;
-  };
   fonts = {
     enableDefaultFonts = true;
     fontDir.enable = true;
@@ -147,29 +81,24 @@
       twemoji-color-font
       liberation_ttf
       corefonts
-      #wqy_zenhei
-      #wqy_microhei
       vistafonts
       vistafonts-chs
       vistafonts-cht
     ] ++ (with (pkgs.callPackage ./modules/packs/glowsans/default.nix { }); [ glowsansSC glowsansTC glowsansJ ])
     ++ (with nur-pkgs;[
-     # maple-font.Mono-NF-v5
      san-francisco 
      plangothic ]);
 
     fontconfig = {
       antialias = true;
-      hinting = {
-        enable = false;
-      };
+      hinting.enable = false;
       subpixel = {
         lcdfilter = "light";
       };
       defaultFonts = {
-        serif = [ "Glow Sans SC" "Glow Sans TC" "Glow Sans J" "Noto Serif" "Noto Serif CJK SC" "Noto Serif CJK TC" "Noto Serif CJK JP" "Noto Serif CJK KR" ];
+        serif = [ "Glow Sans SC" "Glow Sans TC" "Glow Sans J" "Noto Serif" "Noto Serif CJK SC" "Noto Serif CJK TC" "Noto Serif CJK JP" ];
         monospace = [ "SF Mono" ];
-        sansSerif = [ "Glow Sans SC" "Glow Sans TC" "Glow Sans J" "Noto Sans KR" "SF Pro Text" ];
+        sansSerif = [ "Glow Sans SC" "Glow Sans TC" "Glow Sans J" "SF Pro Text" ];
         emoji = [ "twemoji-color-font" "noto-fonts-emoji" ];
       };
     };

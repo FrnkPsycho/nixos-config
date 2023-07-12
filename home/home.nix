@@ -4,12 +4,6 @@
 , ...
 }:
 {
-
-  dconf.settings = {
-    "org/gnome/mutter" = {
-      experimental-features = [ "scale-moniter-framebuffer" ];
-    };
-  };
   imports = import ./programs;
   home.stateVersion = "22.11";
   home.sessionVariables = {
@@ -160,24 +154,10 @@
     size = 18;
   };
 
-
-  home.file = {
-
-    # ".icons/default".source = "${pkgs.Graphite}/share/icons/Graphite";
-    #".config/clash".source = ./dotfiles/clash;
-    #".config/nvim".source = ../modules/nvim;
-    #".config/waybar".source = ./dotfiles/waybar;
-
-    #    ".config/ranger/rc.conf".source = ./dotfiles/ranger/rc.conf;
-  };
-
   programs = {
-    # firefox.enable = true;
     vscode = {
       enable = true;
       package = pkgs.vscode.fhs;
-      # commandLineArgs = ["--gtk4"];
-      #package = pkgs.vscode.fhsWithPackages (ps: with ps; [ rustup zlib ]);
     };
     
     git = {
@@ -186,16 +166,6 @@
       userEmail = "frnkpsycho@gmail.com";
     };
 
-    #mako = {
-    #  enable = false;
-    #  backgroundColor = "#1E1D2F3b";
-    #  borderSize = 1;
-    #  borderColor = "#96CDFB3b";
-    #  maxVisible = 2;
-    #  borderRadius = 12;
-    #  defaultTimeout = 5000;
-    #  font = "JetBrainsMono Nerd Font 12";
-    # };
     zsh = {
       enable = true;
       shellAliases = {
@@ -223,7 +193,7 @@
 
       enableAutosuggestions = true;
       enableCompletion = true;
-      enableSyntaxHighlighting = true;
+      syntaxHighlighting.enable = true;
       autocd = true;
       dotDir = ".config/zsh";
       defaultKeymap = "emacs";

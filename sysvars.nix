@@ -11,7 +11,6 @@
     NIXOS_OZONE_WL = "1";
     MOZ_ENABLE_WAYLAND = "1";
     NODE_PATH = "~/.npm-packages/lib/node_modules";
-    DOTNET_ROOT = "${pkgs.dotnet-sdk}";
     PATH = [
       "\${XDG_BIN_HOME}"
       "/home/${user}/.npm-packages/bin"
@@ -19,4 +18,9 @@
       "/home/frnks/opt/riscv/riscv64-unknown-elf/bin"
     ];
   };
+
+  environment.shellInit = ''
+  gpg-connect-agent /bye
+  export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+  '';
 }

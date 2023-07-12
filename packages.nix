@@ -4,14 +4,7 @@
   # programs.vscode.package = pkgs.vscode.fhsWithPackages (ps: with ps; [ rustup zlib gdb]);
   
   environment.systemPackages = with pkgs; [
-    #(fenix.complete.withComponents [
-    #  "cargo"
-    #  "clippy"
-    #  "rust-src"
-    #  "rustc"
-    #  "rustfmt"
-    #])
-    # sage
+
     android-tools
     php81
     nzbget
@@ -30,16 +23,11 @@
     intltool
     pwndbg
     glfw
-    # llvmPackages_15.openmp
     pkg-config
-    #libsecret.out
     alejandra
-    #dotnet-sdk
-    #dotnet-runtime
     gtk3
     nautilus-open-any-terminal
     unar
-    # helix
     libtiff
     nasm
     file
@@ -54,14 +42,11 @@
     burpsuite
     easyeffects  
     input-remapper
-    # cargo-binutils
     virtiofsd
     vulkan-caps-viewer
-    #amdvlk
     john
     ascii
     packer
-    # vagrant
     unrar
     xorriso
     libguestfs
@@ -87,21 +72,6 @@
     vistafonts-cht
     vistafonts
     corefonts
-    
-    gnomeExtensions.alttab-mod
-    gnomeExtensions.transparent-top-bar
-    gnomeExtensions.pano
-    gnomeExtensions.unite
-    # gnomeExtensions.dock-from-dash
-    gnomeExtensions.dash-to-dock
-    gnomeExtensions.system-monitor-next
-    gnomeExtensions.arcmenu
-    gnomeExtensions.improved-workspace-indicator
-    gnomeExtensions.forge
-    gnomeExtensions.tiling-assistant
-    gnomeExtensions.clipboard-indicator
-    gnomeExtensions.gsconnect
-    gnomeExtensions.just-perfection
     
     flatpak
     gtk4
@@ -232,11 +202,29 @@
     openssl
     docker
     docker-compose
-   ] ++
+   ]
+   ++ 
+   (
+    with pkgs.gnomeExtensions; [
+    alttab-mod
+    transparent-top-bar
+    pano
+    unite
+    # dock-from-dash
+    dash-to-dock
+    system-monitor-next
+    arcmenu
+    improved-workspace-indicator
+    forge
+    tiling-assistant
+    clipboard-indicator
+    gsconnect
+    just-perfection
+   ]
+   ) 
+   ++
   [
-    (
-      python310.withPackages
-        (p: with p;[
+    ( python310.withPackages (p: with p;[
           minidump
           pygobject3
           pyperclip
@@ -296,14 +284,17 @@
     )
   ]
   ++
-  (with pkgs.nodePackages; [
+  (
+    with pkgs.nodePackages; [
     # hexo-cli
     vscode-json-languageserver
     typescript-language-server
     node2nix
     markdownlint-cli2
     prettier
-  ]) ++
+  ]
+  ) 
+  ++
   [
     ((vim_configurable.override { }).customize {
       name = "vim";

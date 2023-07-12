@@ -22,8 +22,23 @@
   security.pam.u2f.enable = true;
 
   services = {
-  # autorandr.enable = true;
-  #  gvfs.enable = true;
+    xserver = {
+      enable = true;
+      layout = "us";
+      xkbOptions = "eurosign:e";
+      videoDrivers = [ "nvidia" ];
+      desktopManager.gnome = {
+        enable = true;
+        extraGSettingsOverridePackages = [ pkgs.gnome.mutter ];
+      };
+      displayManager.gdm = {
+        enable = true;
+        wayland = false;
+      };
+    };
+
+    dbus.enable = true;
+
     earlyoom = {
       enable = true;
       freeMemThreshold = 5;
@@ -142,42 +157,6 @@
   qt.enable = true;
   qt.style = "adwaita";
   qt.platformTheme = "qt5ct";
-
-  programs = {
-    ssh.startAgent = false;
-    proxychains = {
-      enable = true;
-
-      chain = {
-        type = "strict";
-      };
-
-      proxies = {
-        clash = {
-          type = "socks5";
-          host = "127.0.0.1";
-          port = 7890;
-        };
-      };
-    };
-    
-    gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
-    };
-
-    tmux = {
-      aggressiveResize = true;
-      clock24 = true;
-      enable = true;
-      newSession = true;
-      reverseSplit = true;
-
-      plugins = with pkgs.tmuxPlugins; [
-        prefix-highlight
-        nord
-      ];
-    };
-  };
+  
 }
     
