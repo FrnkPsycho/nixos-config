@@ -4,7 +4,15 @@
 , ...
 }: {
   environment.sessionVariables = rec {
-    _JAVA_OPTIONS = "-Dawt.useSystemAAFontSettings=on";
+    # GDK_DPI_SCALE= "0.5";
+    # GDK_BACKEND = "wayland";
+    # CLUTTER_BACKEND = "wayland";
+    # SDL_VIDEODRIVER = "wayland";
+    # QT_QPA_PLATFORM = "wayland";
+    # QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+    # _JAVA_AWT_WM_NONREPARENTING = "1";
+    # _JAVA_OPTIONS = "-Dawt.useSystemAAFontSettings=on";
+    # STEAM_FORCE_DESKTOPUI_SCALING = "2.0";
     NEOVIDE_MULTIGRID = "1";
     NEOVIDE_WM_CLASS = "1";
     EDITOR = "hx";

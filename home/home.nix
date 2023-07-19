@@ -40,7 +40,7 @@
     cider
     android-studio
     scrcpy
-    firefox
+    firefox-wayland
     dolphin-emu
     # helix
     gzdoom

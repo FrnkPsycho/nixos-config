@@ -99,7 +99,7 @@
         output = {
           HDMI-A-1 = {
             mode = "3840x2160";
-            scale = "1.25";
+            scale = "1";
           };
 
           eDP-1 = {

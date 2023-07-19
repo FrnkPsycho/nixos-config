@@ -72,7 +72,7 @@
   };
 
   services.autorandr = {
-    enable = true;
+    enable = false;
     profiles = {
       both = {
         config = {

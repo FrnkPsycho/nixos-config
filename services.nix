@@ -32,7 +32,7 @@
       settings = {
         default_session = {
           command =
-            "${pkgs.greetd.tuigreet}/bin/tuigreet --time --remember --cmd ${pkgs.writeShellScript "sway" ''
+            "${pkgs.greetd.tuigreet}/bin/tuigreet --time --remember --user-menu --cmd ${pkgs.writeShellScript "sway" ''
           export $(/run/current-system/systemd/lib/systemd/user-environment-generators/30-systemd-environment-d-generator)
           exec sway --unsupported-gpu
         ''}";

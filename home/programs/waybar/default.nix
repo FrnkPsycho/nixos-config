@@ -70,7 +70,7 @@
             format = "{percentage_free}% free on {path}";
           };
           clock = {
-            format = "{:%H:%M}";
+            format = "{:%H:%M:%S}";
             timezone = "Asia/Shanghai";
             format-alt = "{:%a %d %b}";
             format-alt-click = "click-right";
@@ -104,8 +104,8 @@
           };
           network = {
             interval = 1;
-            format-wifi = "󰖩 {essid} {bandwidthTotalBytes}";
-            format-ethernet = "󰀂  {ifname} {bandwidthTotalBytes}";
+            format-wifi = "󰖩 {essid} {bandwidthDownBytes}|{bandwidthUpBytes}";
+            format-ethernet = "󰀂  {ifname} {bandwidthTotalBytes}|{bandwidthUpBytes}";
             format-linked = "󰖪 {essid} (No IP)";
             format-disconnected = "󰯡 Disconnected";
             

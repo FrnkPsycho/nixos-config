@@ -1,6 +1,6 @@
 [
   ./helix
-  #./waybar
+  ./waybar
   ./fish
   ./sway
   ./chrome
@@ -8,7 +8,7 @@
   ./starship.nix
   ./nnn.nix
   #./nushell
-  # ./hyprland
+  ./hyprland
   #./bspwm
   ./ranger
   ./wezterm
