@@ -4,10 +4,12 @@
 , ...
 }: {
   environment.sessionVariables = rec {
-    _JAVA_OPTIONS = "-Dsun.java2d.uiScale=2 -Dawt.useSystemAAFontSettings=on";
+    _JAVA_OPTIONS = "-Dawt.useSystemAAFontSettings=on";
     NEOVIDE_MULTIGRID = "1";
     NEOVIDE_WM_CLASS = "1";
     EDITOR = "hx";
+    WLR_RENDERER = "vulkan";
+    WLR_NO_HARDWARE_CURSORS = "1";
     NIXOS_OZONE_WL = "1";
     MOZ_ENABLE_WAYLAND = "1";
     NODE_PATH = "~/.npm-packages/lib/node_modules";

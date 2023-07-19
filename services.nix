@@ -20,19 +20,38 @@
   security.rtkit.enable = true;
   security.polkit.enable = true;
   security.pam.u2f.enable = true;
+  security.pam.services.swaylock.text = ''
+    # PAM configuration file for the swaylock screen locker. By default, it includes
+    # the 'login' configuration file (see /etc/pam.d/login)
+    auth include login
+  '';
 
   services = {
+    greetd = {
+      enable = true;
+      settings = {
+        default_session = {
+          command =
+            "${pkgs.greetd.tuigreet}/bin/tuigreet --time --remember --cmd ${pkgs.writeShellScript "sway" ''
+          export $(/run/current-system/systemd/lib/systemd/user-environment-generators/30-systemd-environment-d-generator)
+          exec sway --unsupported-gpu
+        ''}";
+          user = "greeter";
+        };
+
+      };
+    };
     xserver = {
       enable = true;
       layout = "us";
       xkbOptions = "eurosign:e";
       videoDrivers = [ "nvidia" ];
       desktopManager.gnome = {
-        enable = true;
+        enable = false;
         extraGSettingsOverridePackages = [ pkgs.gnome.mutter ];
       };
       displayManager.gdm = {
-        enable = true;
+        enable = false;
         wayland = false;
       };
     };

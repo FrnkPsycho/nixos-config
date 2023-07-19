@@ -1,4 +1,4 @@
-{ inputs, system, user, ... }:
+{ inputs, system, user,... }:
 
 
 let
@@ -7,11 +7,10 @@ in
 {
   home-manager = {
     useGlobalPkgs = true;
-    # useUserPackages = true;
     users.${user} = {
       imports = [
         homeProfile
-        # inputs.hyprland.homeManagerModules.default        
+        inputs.android-nixpkgs.hmModule
       ];
     };
     extraSpecialArgs = { inherit inputs system user; };

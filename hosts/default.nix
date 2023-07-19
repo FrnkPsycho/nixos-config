@@ -18,7 +18,8 @@ let
         my-nur-pkgs = inputs.my-nur-pkgs.packages."${prev.system}";
       })
       inputs.nur.overlay
-    ] ++ (import ../overlay.nix inputs);
+      inputs.android-nixpkgs.overlays.default
+    ] ++ (import ../overlay.nix { inherit inputs system; });
 
   };
 

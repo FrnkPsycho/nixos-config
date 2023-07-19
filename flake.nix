@@ -10,7 +10,6 @@
           inherit inputs system;
         }
       );
-
     };
 
   inputs = {
@@ -32,29 +31,21 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
       
     };
-    suhr-nur-packages = {
-      url = github:suhr/nur-packages;
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+
+    nixpkgs-wayland = {
+      url = "github:nix-community/nixpkgs-wayland";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     
     clash-meta = {
       url = github:FrnkPsycho/Clash.Meta/Alpha;
     };
 
-    alejandra = {
-      url = github:kamadorueda/alejandra;
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-
-    home-manager = {
-      url = github:nix-community/home-manager/master;
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-
-    helix = {
-      url = github:helix-editor/helix;
-    };
-    
+    alejandra.url = "github:kamadorueda/alejandra";
+    home-manager.url = "github:nix-community/home-manager";
+    helix.url = "github:helix-editor/helix";
+    hyprland.url = "github:vaxerski/Hyprland";
+    android-nixpkgs.url = "github:tadfisher/android-nixpkgs";   
     grub2-themes.url = github:vinceliuice/grub2-themes;
   };
 

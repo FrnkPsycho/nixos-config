@@ -5,7 +5,7 @@
   wayland.windowManager.hyprland = {
     enable = false;
     systemdIntegration = false;
-    extraConfig = import ./config.nix { inherit pkgs user system inpuys; };
+    extraConfig = import ./config.nix { inherit pkgs user system inputs; };
 
   };
 

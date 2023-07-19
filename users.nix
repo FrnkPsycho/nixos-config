@@ -20,6 +20,7 @@
         "plugdev"
         "openrazer"
         "adbusers"
+        "video"
       ]; # Enable ‘sudo’ for the user.
       shell = pkgs.fish;
 

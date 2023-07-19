@@ -50,9 +50,10 @@
         package = config.boot.kernelPackages.nvidiaPackages.stable;
         open = false;
         nvidiaPersistenced = true;
-        modesetting.enable = false;
+        modesetting.enable = true;
         powerManagement.enable = true;
-        # forceFullCompositionPipeline = true;
+        nvidiaSettings = true;
+        #forceFullCompositionPipeline = true;
       };
 
       opengl = {

@@ -11,7 +11,7 @@
 
     loader = {
       grub2-theme = {
-        enable = true;
+        enable = false;
         theme = "whitesur";
         screen = "1080p";
         splashImage =

@@ -4,7 +4,8 @@
   # programs.vscode.package = pkgs.vscode.fhsWithPackages (ps: with ps; [ rustup zlib gdb]);
   
   environment.systemPackages = with pkgs; [
-
+    qt5.qtwayland
+    sdkmanager
     android-tools
     php81
     nzbget

@@ -18,20 +18,26 @@
     manpages.enable = false;
   };
 
+  android-sdk = {
+    enable = true;
+    path = "${config.home.homeDirectory}/.android/sdk";
+    packages = sdk: with sdk; [
+      build-tools-31-0-0
+      cmdline-tools-latest
+      emulator
+      platforms-android-31
+      sources-android-31
+    ];
+  };
+
   home.packages = let
   list1 = let pkgs = import inputs.my-nur-pkgs { 
-    #system= "x86_64-linux"; 
-    #config.allowUnfree = true;
   }; in with pkgs; [
     idafree
-    #prismlauncher
-    #gameconqueror
-    #quake3-data
-    #libtiff
-    #wpsoffice-cn
   ];
 
   list2 = with pkgs; [
+    cider
     android-studio
     scrcpy
     firefox
@@ -80,7 +86,9 @@
     nur.repos.xddxdd.wechat-uos-bin
     obsidian
     gnome.nautilus
+    gnome.gnome-calculator
     gnome.eog
+    gnome.file-roller
     # gnomecast
     thunderbird
     tetrio-desktop
@@ -143,6 +151,15 @@
 
     tdesktop
   ];
+
+  # list3 = let pkgs = import inputs.android-nixpkgs { 
+  # }; in with pkgs; [
+  #   cmdline-tools-latest
+  #   build-tools-32-0-0
+  #   platform-tools
+  #   platforms-android-31
+  #   emulator
+  # ];
   in
   list1 ++ list2;
   
@@ -288,7 +305,7 @@
       ];
     };
   };
-  
+
   gtk = {
     enable = true;
     theme = {

@@ -8,7 +8,10 @@
 {
     programs = {
         adb.enable = true;
-        xwayland.enable = false;
+        light.enable = true;
+        sway.enable = true;
+        waybar.enable = true;
+        xwayland.enable = true;
         gamemode.enable = true;
         fish.enable = true;
         dconf.enable = true;

@@ -19,7 +19,7 @@ return {
 	enable_tab_bar = false,
 	use_fancy_tab_bar = true,
 	hide_tab_bar_if_only_one_tab = false,
-	enable_wayland = false,
+	enable_wayland = true,
 	scrollback_lines = 5000,
 
 	pane_focus_follows_mouse = true,
