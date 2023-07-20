@@ -1,8 +1,10 @@
 monitor=HDMI-A-1,3840x2160@60,auto,1
+monitor=eDP-1,1920x1080@165,1920x2160,1
+workspace=1,monitor:HDMI-A-1,default:true
+workspace=5,monitor:eDP-1,default:true
 # monitor=VGA-1,transform,1
-exec-once=fcitx5
-; exec-once=mako
-exec-once=waybar
+#exec-once=fcitx5
+#exec-once=mako
 
 # Log errors
 env = HYPRLAND_LOG_WLR, 1
@@ -18,15 +20,16 @@ input {
 }
 general {
     cursor_inactive_timeout=30
-    gaps_in=3
-    gaps_out=3
-    border_size=2
+    gaps_in=2
+    gaps_out=0
+    border_size=1
     col.active_border=rgba(f0c9cfbf)
-    col.inactive_border=rgba(59595940)
+    #col.active_border = rgba(33ccffee) rgbs(00ff99ee) 45deg
+    col.inactive_border=rgba(595959aa)
     layout = dwindle
 }
 dwindle {
-     no_gaps_when_only = false
+     no_gaps_when_only = true
      force_split = 2 
      special_scale_factor = 0.8
      split_width_multiplier = 1.0 
@@ -39,12 +42,12 @@ master {
      new_is_master = true
      special_scale_factor = 0.8
      new_is_master = true
-     no_gaps_when_only = false
+     no_gaps_when_only = true
 }
 
 decoration {
     # See https://wiki.hyprland.org/Configuring/Variables/ for more
-    rounding = 11 
+    rounding = 8
     blur = true
     blur_size = 4
     blur_passes = 3
@@ -78,12 +81,15 @@ animations {
 #    animation = workspaces, 1, 6, overshot, slidevert
     animation = workspaces, 1, 2, default
 }
+
 bind=SUPER,Q,killactive,
 bind=SUPERSHIFT,E,exec,pkill Hyprland
 bind=SUPER,F,fullscreen,
 bind=SUPER,Space,togglefloating,
 bind=SUPER,P,pseudo,
 bind=SUPERCTRL,L,exec,swaylock
+# bindm=mouse:275,mouse:272,movewindow
+# bindm=mouse:275,mouse:273,resizewindow
 bindm=SUPER,mouse:272,movewindow
 bindm=SUPER,mouse:273,resizewindow
 bind=,Print,exec,$ssselection
@@ -166,27 +172,59 @@ bind=CTRL SHIFT, l, resizeactive, 15 0
 bind=CTRL SHIFT, h, resizeactive,-15 0
 bind=CTRL SHIFT, k, resizeactive, 0 -15
 bind=CTRL SHIFT, j, resizeactive, 0 15
-windowrule=float,title:^(Picture-in-Picture)$
-windowrule=size 960 540,title:^(Picture-in-Picture)$
-windowrule=move 25%-,title:^(Picture-in-Picture)$
+
+
+# firefox Picture-in-Picture
+windowrulev2 = float,class:^(firefox)$,title:^(Picture-in-Picture)$
+windowrulev2 = pin,class:^(firefox)$,title:^(Picture-in-Picture)$
+windowrulev2 = nofullscreenrequest,class:^(firefox)$,title:^(Picture-in-Picture)$
+# firefox figma micro indicator
+windowrulev2 = nofullscreenrequest,class:^(firefox)$,title:^(Firefox — Sharing Indicator)$
+windowrulev2 = float,class:^(firefox)$,title:^(Firefox — Sharing Indicator)$
+
+# windowrule=float,title:^(Picture-in-Picture)$
+# windowrule=size 960 540,title:^(Picture-in-Picture)$
+# windowrule=move 25%-,title:^(Picture-in-Picture)$
+
+# common modals
+windowrule = float,title:^(Open)$
+windowrule = float,title:^(Choose Files)$
+windowrule = float,title:^(Save As)$
+windowrule = float,title:^(Confirm to replace files)$
+windowrule = float,title:^(File Operation Progress)$
+windowrulev2 = float,class:^(google-chrome)$,title:^(Open Files)$
+windowrulev2 = float,class:^(google-chrome)$,title:^(Open File)$
+
+# jetbrains
+windowrule=noanim,class:^(jetbrains)$
+windowrule=noanim,class:^(android-studio)$
+
+windowrule=float,file-roller
+windowrule=float,nautilus
+
 windowrule=float,imv
 windowrule=move 25%-,imv
 windowrule=size 960 540,imv
+
 windowrule=float,mpv
 windowrule=move 25%-,mpv
 windowrule=size 960 540,mpv
+
 windowrule=float,danmufloat
 windowrule=move 25%-,danmufloat
 windowrule=pin,danmufloat
 windowrule=rounding 5,danmufloat
 windowrule=size 960 540,danmufloat
+
 windowrule=float,termfloat
 windowrule=move 25%-,termfloat
 windowrule=size 960 540,termfloat
 windowrule=rounding 5,termfloat
+
 windowrule=float,pcmanfm
 windowrule=move 25%-,pcmanfm
 windowrule=size 960 540,pcmanfm
+
 windowrule=animation slide right,kitty
 windowrule=animation slide right,alacritty
 windowrule=animation slide right,telegramdesktop

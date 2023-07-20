@@ -10,12 +10,21 @@
         adb.enable = true;
         light.enable = true;
         sway.enable = true;
-        waybar.enable = true;
+        # waybar.enable = true;
         xwayland.enable = true;
         gamemode.enable = true;
         fish.enable = true;
         dconf.enable = true;
         ssh.startAgent = false;
+
+        #hyprland = {
+        #    enable = true;
+        #    xwayland = {
+        #        hidpi = true;
+        #        enable = true;
+        #    };
+        #    nvidiaPatches = true;
+        #};
 
         steam = {
             enable = true;

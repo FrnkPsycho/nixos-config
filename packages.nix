@@ -4,6 +4,19 @@
   # programs.vscode.package = pkgs.vscode.fhsWithPackages (ps: with ps; [ rustup zlib gdb]);
   
   environment.systemPackages = with pkgs; [
+    inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
+    wl-clipboard
+    hyprpicker
+    swaybg
+    cliphist
+    fuzzel
+    libnotify
+    #networkmanager_dmenu
+    networkmanagerapplet
+    cliphist
+    grim
+    slurp
+  
     kanshi
     qt5.qtwayland
     sdkmanager

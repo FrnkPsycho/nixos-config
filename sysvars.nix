@@ -13,6 +13,7 @@
     # _JAVA_AWT_WM_NONREPARENTING = "1";
     # _JAVA_OPTIONS = "-Dawt.useSystemAAFontSettings=on";
     # STEAM_FORCE_DESKTOPUI_SCALING = "2.0";
+    SDL_IM_MODULE = "fcitx";
     NEOVIDE_MULTIGRID = "1";
     NEOVIDE_WM_CLASS = "1";
     EDITOR = "hx";

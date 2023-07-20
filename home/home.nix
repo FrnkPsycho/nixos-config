@@ -8,7 +8,7 @@
   home.stateVersion = "22.11";
   home.sessionVariables = {
     EDITOR = "hx";
-    TERMINAL = "wezterm";
+    TERMINAL = "kitty";
     BROWSER = "firefox";
   };
 
@@ -171,7 +171,58 @@
     size = 18;
   };
 
+  xdg.desktopEntries = {
+    vscode = {
+      name = "Visual Studio Code /w IME";
+      exec = "code --enable-wayland-ime %F";
+      categories = [ "Utility" "TextEditor" "Development" "IDE" ];
+      icon = "code";
+      genericName = "Text Editor";
+      startupNotify = true;
+      mimeType = [ "text/plain" "inode/directory" ];
+      settings = {
+        Keywords = "vscode";
+        StartupWMClass = "Code";
+      };
+      actions = {
+        "new-empty-window" = {
+          exec = "code --new-window --enable-wayland-ime %F";
+          icon = "code";
+          name = "New Empty Window";
+        };
+      };
+    };
+
+    obsidian = {
+      name = "Obsidian /w IME";
+      exec = "obsidian %u --enable-wayland-ime";
+      categories = [ "Office" "TextEditor" ];
+      icon = "obsidian";
+      mimeType = [ "x-scheme-handler/obsidian" ];
+    };
+  };
+
+  services = {
+    
+    mako = {
+      enable = true;
+      backgroundColor = "#1E1D2Fa6";
+      borderSize = 1;
+      borderColor = "#96CDFB3b";
+      maxVisible = 2;
+      borderRadius = 10;
+      defaultTimeout = 5000;
+      font = "JetBrainsMono Nerd Font 20";
+      width = 600;
+      height = 400;
+
+      extraConfig = ''
+      '';
+    };
+  };
+
   programs = {
+    
     vscode = {
       enable = true;
       package = pkgs.vscode.fhs;

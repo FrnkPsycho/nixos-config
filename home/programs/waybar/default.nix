@@ -9,32 +9,31 @@
   programs = {
     waybar = {
       enable = true;
+      package = pkgs.waybar.overrideAttrs (oldAttrs: {
+         mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+      });
       style = builtins.readFile ./waybar.css;
       systemd = {
-        enable = true;
-        # target = "hyprland-session.target";
+        enable = false;
+        target = "hyprland-session.target";
       };
       settings = {
         mainBar = {
           layer = "top";
           position = "top";
-          height = 27;
-          modules-left = [ "sway/mode" "sway/workspaces" "sway/window" ];
+          height = 28;
+          spacing = 4;
+          modules-left = [ "hyprland/submap" "wlr/workspaces" "idle_inhibitor" "hyprland/window"];
           
           modules-center = [ "clock" ];
-          modules-right = 
-            let
-              base = [
-                "idle_inhibitor"
-                "network"
-                "cpu"
-                "memory"
-                "battery"
-                "tray"
-              ];
-            in              
-            base;
           
+          modules-right = [ "network" "cpu" "memory" "disk" "battery" "tray" "wireplumber" ];
+
+          "hyprland/submap"= {
+            format = " {}";
+            max-length = 16;
+            tooltip = false;
+          };
           "sway/mode" = {
             format = " {}";
           };
@@ -51,31 +50,62 @@
             };
           };
 
-          #"wlr/workspaces" = {
-          #  format = "{icon}";
-          #  on-click = "activate";
-          #  on-scroll-up = "${pkgs.hyprland}/bin/hyprctl dispatch workspace e-1";
-          #  on-scroll-down = "${pkgs.hyprland}/bin/hyprctl dispatch workspace e+1";
-          #};
-          "sway/window" = {
-            max-length = 80;
-            tooltip = false;
+          "wlr/workspaces" = {
+           format = "{icon}";
+           on-click = "activate";
+           on-scroll-up = "hyprctl dispatch workspace m-1 > /dev/null";
+           on-scroll-down = "hyprctl dispatch workspace m+1 > /dev/null";
+           format-icons = {
+            "1" = "";
+            "2" = "";
+            "3" = "";
+            "4" = "";
+            "5" = "";
+            "6" = "";
+            "urgent" = "";
+            "focused" = "";
+            "default" = "";
+            };
           };
-          "tray" = {
-            "icon-size" = 20;
-            "spacing" = 5;
+          "hyprland/window" = {
+            max-length = 100;
+          };
+          
+          tray = {
+            icon-size = 24;
           };
           disk = {
             interval = 30;
-            format = "{percentage_free}% free on {path}";
+            on-click = "nautilus";
+            format = "{free} 󰨣";
           };
           clock = {
-            format = "{:%H:%M:%S}";
+            format = "{:%H:%M}";
             timezone = "Asia/Shanghai";
             format-alt = "{:%a %d %b}";
             format-alt-click = "click-right";
-            # on-click = "${lib.getExe pkgs.swaylock}";
-            tooltip = true;
+            tooltip-format = "<tt><small>{calendar}</small></tt>";
+            calendar = {
+                    "mode"          = "month";
+                    "mode-mon-col"  = 3;
+                    "weeks-pos"     = "right";
+                    "on-scroll"     = 1;
+                    "on-click-right"= "mode";
+                    "format"= {
+                              "months"=     "<span color='#ffead3'><b>{}</b></span>";
+                              "days"=       "<span color='#ecc6d9'><b>{}</b></span>";
+                              "weeks"=      "<span color='#99ffdd'><b>W{}</b></span>";
+                              "weekdays"=   "<span color='#ffcc66'><b>{}</b></span>";
+                              "today"=      "<span color='#ff6699'><b><u>{}</u></b></span>";
+                              };
+                    };
+            actions =  {
+                    "on-click-right"= "mode";
+                    "on-click-forward"= "tz_up";
+                    "on-click-backward"= "tz_down";
+                    "on-scroll-up"= "shift_up";
+                    "on-scroll-down"= "shift_down";
+                    };
           };
           battery = {
             format = "{capacity}% {icon}";
@@ -91,28 +121,46 @@
           };
           cpu = {
             interval = 1;
+            #on-click = "exec bash -c \"${pkgs.btop}/bin/btop\"";
+            on-click = "kitty btop";
+            tooltop = true;
             format = "{usage}% ";
             max-length = 10;
             min-length = 5;
           };
           memory = {
             interval = 1;
-            format = "{}% ";
+            on-click = "kitty btop";
+            format = "{used:0.1f}G ";
             max-length = 10;
             min-length = 5;
             tooltip = true;
           };
           network = {
             interval = 1;
-            format-wifi = "󰖩 {essid} {bandwidthDownBytes}|{bandwidthUpBytes}";
-            format-ethernet = "󰀂  {ifname} {bandwidthTotalBytes}|{bandwidthUpBytes}";
+            on-click = "nm-connection-editor";
+            tooltip = true;
+            format-wifi = "󰖩 {essid}  {bandwidthDownBytes} |  {bandwidthUpBytes}";
+            tooltip-format = "{ifname} | {gwaddr}";
+            format-ethernet = "󰀂 {ifname}  {bandwidthTotalBytes} |  {bandwidthUpBytes}";
             format-linked = "󰖪 {essid} (No IP)";
             format-disconnected = "󰯡 Disconnected";
             
           };
+          mpris = {
+            format = "DEFAULT: {player_icon} {dynamic}";
+            format-pause = "DEFAULT: {status_icon} <i>{dynamic}</i>";
+            player_icons = {
+              default = "▶";
+              mpv = "";
+            };
+            status_icons = {
+              paused = "⏸";
+            };
+          };
           wireplumber = {
             format = "{volume}% {icon}";
-            on-click = "exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+            on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
             format-muted = "x";
             format-icons = {
               phone = [ " " " " " 墳" " " ];

@@ -1,89 +1,113 @@
+@define-color base00 #181818;
+@define-color base01 #2b2e37;
+@define-color base02 #3b3e47;
+@define-color base03 #585858;
+@define-color base04 #b8b8b8;
+@define-color base05 #d8d8d8;
+@define-color base06 #e8e8e8;
+@define-color base07 #f8f8f8;
+@define-color base08 #ab4642;
+@define-color base09 #dc9656;
+@define-color base0A #f7ca88;
+@define-color base0B #a1b56c;
+@define-color base0C #86c1b9;
+@define-color base0D #7cafc2;
+@define-color base0E #ba8baf;
+@define-color base0F #a16946;
+
 * {
-	border: none;
-	border-radius: 0px;
-	font-family: FiraCode Nerd Font Mono;
-	font-weight: bold;
-	font-size: 15px;
+	transition: none;
 	box-shadow: none;
-	text-shadow: none;
-	transition-duration: 0s;
-	min-height: 0;
 }
 
-window {
-	color: rgba(217, 216, 216, 1);
-	background: rgba(83, 89, 83, 0.4);
+#waybar {
+	font-family: 'FiraCode Nerd Font Mono';
+	font-size: 1.0em;
+	font-weight: 500;
+	color: @base04;
+	background: @base01;
 }
 
-window#waybar.solo {
-	color: rgba(217, 216, 216, 1);
-	background: rgba(35, 31, 32, 0.85);
+#workspaces {
+	margin: 0 4px;
 }
 
 #workspaces button {
-	padding: 0px 4px 0px 4px;
-	color: rgba(217, 216, 216, 0.6);
-	padding-left: 10px;
-	padding-right: 10px;
+	margin: 4px 0;
+	padding: 0 4px;
+	color: @base05;
+}
+
+#workspaces button.visible {}
+
+#workspaces button.active {
+	border-radius: 4px;
+	background-color: @base02;
 }
 
 #workspaces button.urgent {
-	color: rgba(227, 180, 184, 0.8);
-}
-
-#workspaces button:hover {
-	background-color: rgba(230, 210, 213, 0.2);
-	color: rgba(217, 216, 216, 0.8);
-}
-
-#workspaces button.focused {
-	background-color: rgba(233, 215, 223, 0.2);
-	color: rgba(230, 210, 213, 0.6);
-}
-
-/*
-*/
-
-#tray, #mode, #battery, #cpu, #memory, #network,  #backlight, #custom-storage, #custom-spotify, #custom-weather, #custom-mail, #temperature, #idle_inhibitor {
-	color: rgba(217, 216, 216, 1);
-	padding: 3px 3px 3px 3px;
-	margin: 0px 4px 0px 4px;
-	border-radius: 6px;
-}
-
-#tray {
-  padding-right:9px;
-  padding-left: 10px;
-}
-
-#audio {
-	color: rgba(217, 216, 216, 1);
-	padding: 3px 7px 3px 7px;
-	margin: 0px 0px 0px 0px;
-	border-radius: 6px;
-}
-
-#custom-lock {
-	padding: 3px 5px 3px 15px;
-	margin: 0px 0px 0px 0px;
-	color: rgba(217, 216, 216, 1);
-}
-
-#clock {
-	padding: 5px 18px 3px 0px;
-	margin: 0px 0px 0px 0px;
-	color: rgba(217, 216, 216, 1);
-	border-radius: 6px;
-}
-
-#battery.warning {
-	color: rgba(255, 210, 4, 1);
-}
-
-#battery.critical {
 	color: rgba(238, 46, 36, 1);
 }
 
-#battery.charging {
-	color: rgba(217, 216, 216, 1);
+#tray {
+	margin: 4px 4px 4px 4px;
+	border-radius: 4px;
+	background-color: @base02;
+}
+
+#tray * {
+	padding: 0 6px;
+	border-left: 1px solid @base00;
+}
+
+#tray *:first-child {
+	border-left: none;
+}
+
+#mode,
+#battery,
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#mpris,
+#disk,
+#wireplumber,
+#idle_inhibitor,
+#backlight,
+#custom-storage,
+#custom-updates,
+#custom-weather,
+#custom-mail,
+#clock,
+#temperature {
+	margin: 4px 2px;
+	padding: 0 6px;
+	background-color: @base02;
+	border-radius: 4px;
+	min-width: 20px;
+}
+
+#pulseaudio.muted {
+	color: @base0F;
+}
+
+#pulseaudio.bluetooth {
+	color: @base0C;
+}
+
+#clock {
+	margin-left: 0px;
+	margin-right: 4px;
+	background-color: transparent;
+}
+
+#temperature.critical {
+	color: @base0F;
+}
+
+#window {
+	font-size: 1.0em;
+	font-weight: 500;
+	font-family: 'FiraCode Nerd Font Mono';
 }

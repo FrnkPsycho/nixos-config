@@ -36,6 +36,11 @@
       url = "github:nix-community/nixpkgs-wayland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hyprland-contrib = {
+      url = "github:hyprwm/contrib";
+      inputs.nixpkgs.follows = "nixpkgs";
+  };
     
     clash-meta = {
       url = github:FrnkPsycho/Clash.Meta/Alpha;
