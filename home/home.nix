@@ -215,6 +215,7 @@
       font = "JetBrainsMono Nerd Font 20";
       width = 600;
       height = 400;
+      maxIconSize = 100;
 
       extraConfig = ''
       '';

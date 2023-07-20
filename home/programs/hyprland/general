@@ -196,8 +196,9 @@ windowrulev2 = float,class:^(google-chrome)$,title:^(Open Files)$
 windowrulev2 = float,class:^(google-chrome)$,title:^(Open File)$
 
 # jetbrains
-windowrule=noanim,class:^(jetbrains)$
-windowrule=noanim,class:^(android-studio)$
+windowrule=noanim,^(jetbrains)(.*)$
+# jetbrains popup window
+windowrulev2=nofocus,class:^(jetbrains)(.*)$,title:^(win)(.*)$
 
 windowrule=float,file-roller
 windowrule=float,nautilus
