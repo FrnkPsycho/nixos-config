@@ -9,9 +9,7 @@
   programs = {
     waybar = {
       enable = true;
-      package = pkgs.waybar.overrideAttrs (oldAttrs: {
-         mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-      });
+      package = pkgs.waybar;
       style = builtins.readFile ./waybar.css;
       systemd = {
         enable = false;
@@ -23,7 +21,7 @@
           position = "top";
           height = 28;
           spacing = 4;
-          modules-left = [ "hyprland/submap" "wlr/workspaces" "idle_inhibitor" "hyprland/window"];
+          modules-left = [ "hyprland/submap" "wlr/workspaces" "hyprland/window"];
           
           modules-center = [ "clock" ];
           
@@ -59,9 +57,10 @@
             "1" = "";
             "2" = "";
             "3" = "";
-            "4" = "";
-            "5" = "";
-            "6" = "";
+            "4" = "󰒃";
+            "5" = "";
+            "6" = "󰮃";
+            "9" = "";
             "urgent" = "";
             "focused" = "";
             "default" = "";
@@ -76,7 +75,7 @@
           };
           disk = {
             interval = 30;
-            on-click = "nautilus";
+            on-click = "${pkgs.gnome.nautilus}/bin/nautilus";
             format = "{free} 󰨣";
           };
           clock = {
@@ -122,7 +121,7 @@
           cpu = {
             interval = 1;
             #on-click = "exec bash -c \"${pkgs.btop}/bin/btop\"";
-            on-click = "kitty btop";
+            on-click = "${pkgs.kitty}/bin/kitty btop";
             tooltop = true;
             format = "{usage}% ";
             max-length = 10;
@@ -130,7 +129,7 @@
           };
           memory = {
             interval = 1;
-            on-click = "kitty btop";
+            on-click = "${pkgs.kitty}/bin/kitty btop";
             format = "{used:0.1f}G ";
             max-length = 10;
             min-length = 5;
@@ -138,7 +137,7 @@
           };
           network = {
             interval = 1;
-            on-click = "nm-connection-editor";
+            on-click = "${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
             tooltip = true;
             format-wifi = "󰖩 {essid}  {bandwidthDownBytes} |  {bandwidthUpBytes}";
             tooltip-format = "{ifname} | {gwaddr}";
@@ -160,7 +159,7 @@
           };
           wireplumber = {
             format = "{volume}% {icon}";
-            on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+            on-click = "${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
             format-muted = "x";
             format-icons = {
               phone = [ " " " " " 墳" " " ];

@@ -35,6 +35,7 @@
 #workspaces button {
 	margin: 4px 0;
 	padding: 0 4px;
+	font-size: 1.0em;
 	color: @base05;
 }
 
@@ -81,7 +82,7 @@
 #custom-mail,
 #clock,
 #temperature {
-	margin: 4px 2px;
+	margin: 0px 4px;
 	padding: 0 6px;
 	background-color: @base02;
 	border-radius: 4px;
@@ -97,7 +98,7 @@
 }
 
 #clock {
-	margin-left: 0px;
+	margin-left: 4px;
 	margin-right: 4px;
 	background-color: transparent;
 }
@@ -107,7 +108,7 @@
 }
 
 #window {
-	font-size: 1.0em;
+	font-size: 0.9em;
 	font-weight: 500;
 	font-family: 'FiraCode Nerd Font Mono';
 }

@@ -11,6 +11,10 @@
       };
     });
 
+    waybar = prev.waybar.overrideAttrs (old: {
+      mesonFlags = old.mesonFlags ++ [ "-Dexperimental=true" ];
+    });
+
     sway-unwrapped = inputs.nixpkgs-wayland.packages.${system}.sway-unwrapped;
 
     save-clipboard-to = prev.writeShellScriptBin "save-clipboard-to" ''

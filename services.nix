@@ -26,6 +26,19 @@
     auth include login
   '';
 
+  #systemd.services = {
+  #  waybar = {
+  #    enable = true;
+  #    serviceConfig = {
+  #      ExecStart = "${pkgs.waybar}/bin/waybar";
+  #      Restart = "on-failure";
+  #      RestartSec = "3s";
+  #    };
+  #    aliases = [ "waybar-daemon.service" ];
+  #    # wantedBy = [ "hyprland-session.target" ];
+  #  };
+  #};
+
   services = {
     greetd = {
       enable = true;
@@ -58,6 +71,8 @@
 
     dbus.enable = true;
     mpd.enable = true;
+    udisks2.enable = true;
+    gvfs.enable = true;
 
     earlyoom = {
       enable = true;

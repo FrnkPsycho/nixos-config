@@ -4,6 +4,10 @@
   # programs.vscode.package = pkgs.vscode.fhsWithPackages (ps: with ps; [ rustup zlib gdb]);
   
   environment.systemPackages = with pkgs; [
+    autokey
+    wineWowPackages.waylandFull
+    winetricks
+  
     inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
     wl-clipboard
     hyprpicker
@@ -11,6 +15,7 @@
     cliphist
     fuzzel
     libnotify
+    udiskie
     #networkmanager_dmenu
     networkmanagerapplet
     cliphist

@@ -53,7 +53,7 @@
     aseprite
     kchmviewer
     # scanmem
-    autokey
+    #autokey
     qbittorrent
     wpsoffice
     iaito
@@ -169,6 +169,26 @@
     package = pkgs.nur-pkgs.Graphite-cursors; #callPackage ../modules/packs/Graphite-cursors { };
     name = "Graphite-light-nord";
     size = 18;
+  };
+
+  #systemd.services = {
+  #  waybar = {
+  #    serviceConfig = {
+  #      ExecStart = 
+  #    };
+  #  };
+  #};
+
+  systemd.user.services = {
+    waybar = {
+      Unit.Description = "Waybar Auto-Restart Daemon Service";
+      Service = {
+        ExecStart = "${pkgs.waybar}/bin/waybar";
+        Restart = "on-failure";
+        RestartSec = "1s";
+      };
+      # Install.WantedBy = [ "hyprland-session.target" ];
+    };
   };
 
   xdg.desktopEntries = {

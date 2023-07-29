@@ -13,6 +13,7 @@
         # waybar.enable = true;
         xwayland.enable = true;
         gamemode.enable = true;
+        gamescope.enable = true;
         fish.enable = true;
         dconf.enable = true;
         ssh.startAgent = false;

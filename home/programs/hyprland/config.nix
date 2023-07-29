@@ -40,8 +40,10 @@ builtins.readFile ./mocha + (with deps; ''
   exec-once=fcitx5
   exec-once=firefox
   exec-once=telegram-desktop
-  # exec-once=pkill waybar
-  exec-once=sleep 3; waybar
+  exec-once=udiskie &
+  # This is a dirty approach since my waybar will be broken if some services aren't started
+  # And it crashes randomly so I created a daemon service in home.nix
+  exec-once=sleep 3; systemctl start --user waybar.service
   
   bind=SUPER,RETURN,exec,kitty
   bind=SUPER,D,exec,fuzzel
@@ -85,7 +87,7 @@ builtins.readFile ./mocha + (with deps; ''
   
   exec-once = wl-paste --type text --watch /etc/nixos/home/programs/hyprland/clipboard.sh text
   exec-once = wl-paste --type image --watch /etc/nixos/home/programs/hyprland/clipboard.sh image
-  # exec-once=swaybg -i 
+  exec-once=swaybg -i /etc/nixos/home/programs/hyprland/bg.jpg 
   #exec-once=${systemd-run-app} ${tdesktop}
   #exec-once=firefox
   

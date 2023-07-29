@@ -12,6 +12,8 @@
     settings = {
       background_opacity = "1";
       confirm_os_window_close = "0";
+      copy_on_select = "yes";
+      
     };
 
     keybindings = {
@@ -22,58 +24,10 @@
     };
 
     extraConfig = "
-#window_padding_width 2
-#background  #3c3836
-#foreground  #f2f8fd
-#cursor                #d8dee9
-#selection_foreground  #2e3440
-#selection_background  #505a60
-#color0  #3c474d
-#color8  #868d80
-## red
-#color1                #e68183
-## light red
-#color9                #e68183
-## green
-#color2                #a7c080
-## light green
-#color10               #a7c080
-## yellow
-#color3                #d9bb80
-## light yellow
-#color11               #d9bb80
-## blue
-#color4                #83b6af
-## light blue
-#color12               #83b6af
-## magenta
-#color5                #d39bb6
-## light magenta
-#color13               #d39bb6
-## cyan
-#color6                #87c095
-## light cyan
-#color14               #87c095
-## light gray
-#color7                #868d80
-## dark gray
-#color15               #868d80
-# FROM Amamiya
-# vim:ft=kitty
-
-## name:     Catppuccin-Macchiato
-## author:   Pocco81 (https://github.com/Pocco81)
-## license:  MIT
-## upstream: https://github.com/catppuccin/kitty/blob/main/macchiato.conf
-## blurb:    Soothing pastel theme for the high-spirited!
-
-
-
+      
 # The basic colors
-window_padding_width 4
 foreground              #CAD3F5
-background              #3C3836
-#24273A
+background              #24273A
 selection_foreground    #24273A
 selection_background    #F4DBD6
 
@@ -141,7 +95,6 @@ color14 #8BD5CA
 # white
 color7  #B8C0E0
 color15 #A5ADCB
-";
-    #
+    ";
   };
 }
