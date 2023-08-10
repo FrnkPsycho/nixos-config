@@ -9,7 +9,7 @@
     programs = {
         adb.enable = true;
         light.enable = true;
-        sway.enable = true;
+        # sway.enable = true;
         # waybar.enable = true;
         xwayland.enable = true;
         gamemode.enable = true;

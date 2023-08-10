@@ -8,10 +8,11 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" "vfio-pci" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelModules = [ "kvm-amd" ];
+  # boot.kernelParams = [ "amd_iommu=on" "pcie_aspm=off"];
   boot.extraModulePackages = [];
   boot.loader.timeout = 3;
 
@@ -44,6 +45,10 @@
     enable = true;
     algorithm = "zstd";
   };
+
+  #systemd.tmpfiles.rules = [
+  #    "f /dev/shm/looking-glass 0660 frnks qemu-libvirtd -"
+  #];
 
   hardware = {
       nvidia = {

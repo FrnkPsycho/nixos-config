@@ -75,7 +75,7 @@
           };
           disk = {
             interval = 30;
-            on-click = "${pkgs.gnome.nautilus}/bin/nautilus";
+            on-click = "${pkgs.kitty}/bin/kitty ranger ~";
             format = "{free} 󰨣";
           };
           clock = {
@@ -109,14 +109,14 @@
           battery = {
             format = "{capacity}% {icon}";
             format-alt = "{time} {icon}";
-            format-icons = [ "" "" "" "" "" ];
-            format-charging = "{capacity}% ";
+            format-icons = [ "󰁻" "󰁽" "󰁿" "󰂁" "󰁹" ];
+            format-charging = "{capacity}% 󰂄";
             interval = 10;
             states = {
               warning = 25;
               critical = 10;
             };
-            tooltip = false;
+            tooltip = true;
           };
           cpu = {
             interval = 1;
@@ -137,7 +137,7 @@
           };
           network = {
             interval = 1;
-            on-click = "${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
+            on-click = "${pkgs.kitty}/bin/kitty nmtui";
             tooltip = true;
             format-wifi = "󰖩 {essid}  {bandwidthDownBytes} |  {bandwidthUpBytes}";
             tooltip-format = "{ifname} | {gwaddr}";

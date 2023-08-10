@@ -4,6 +4,13 @@
   # programs.vscode.package = pkgs.vscode.fhsWithPackages (ps: with ps; [ rustup zlib gdb]);
   
   environment.systemPackages = with pkgs; [
+    # blueman
+    scanmem
+    looking-glass-client
+    # scream-receivers
+    hashcat
+    gnome.gnome-calculator
+  
     autokey
     wineWowPackages.waylandFull
     winetricks
@@ -22,12 +29,12 @@
     grim
     slurp
   
-    kanshi
+    # kanshi
     qt5.qtwayland
-    sdkmanager
+    # sdkmanager
     android-tools
     php81
-    nzbget
+    # nzbget
     innoextract
     vkbasalt-cli
     amule
@@ -36,8 +43,8 @@
     xorg.xprop
     binwalk
     pandoc
-    gobject-introspection
-    my-nur-pkgs.gameconqueror
+    # gobject-introspection
+    # my-nur-pkgs.gameconqueror
     nix-prefetch-git
     readline
     intltool
@@ -46,7 +53,7 @@
     pkg-config
     alejandra
     gtk3
-    nautilus-open-any-terminal
+    # nautilus-open-any-terminal
     unar
     libtiff
     nasm
@@ -54,10 +61,10 @@
     tree
     desktop-file-utils
     appimage-run
-    jdk
+    # jdk
     jdk8
     jdk11
-    jdk17
+    # jdk17
     razergenie
     burpsuite
     easyeffects  
@@ -226,25 +233,25 @@
    ++ 
    (
     with pkgs.gnomeExtensions; [
-    alttab-mod
-    transparent-top-bar
-    pano
-    unite
-    # dock-from-dash
-    dash-to-dock
-    system-monitor-next
-    arcmenu
-    improved-workspace-indicator
-    forge
-    tiling-assistant
-    clipboard-indicator
-    gsconnect
-    just-perfection
+    #alttab-mod
+    #transparent-top-bar
+    #pano
+    #unite
+    #dash-to-dock
+    #system-monitor-next
+    #arcmenu
+    #improved-workspace-indicator
+    #forge
+    #tiling-assistant
+    #clipboard-indicator
+    #gsconnect
+    #just-perfection
    ]
    ) 
    ++
   [
     ( python310.withPackages (p: with p;[
+          #uncompyle6
           minidump
           pygobject3
           pyperclip

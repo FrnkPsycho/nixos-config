@@ -41,9 +41,13 @@ builtins.readFile ./mocha + (with deps; ''
   exec-once=firefox
   exec-once=telegram-desktop
   exec-once=udiskie &
+  
   # This is a dirty approach since my waybar will be broken if some services aren't started
   # And it crashes randomly so I created a daemon service in home.nix
   exec-once=sleep 3; systemctl start --user waybar.service
+
+  # This is a script for suspend handling
+  exec-once=/etc/nixos/home/programs/hyprland/lock.sh
   
   bind=SUPER,RETURN,exec,kitty
   bind=SUPER,D,exec,fuzzel
@@ -65,10 +69,10 @@ builtins.readFile ./mocha + (with deps; ''
   bind=,XF86AudioLowerVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
   bind=,XF86AudioMute,exec,wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
   bind=,XF86AudioMicMute,exec,wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
-
   bind=,XF86MonBrightnessUp,exec,light -A 5
   bind=,XF86MonBrightnessDown,exec,light -U 5
-  bind=,mouse:274,exec,wl-copy $(wl-paste -p)
+  bind=,XF86Calculator,exec,gnome-calculator
+  # bind=,mouse:274,exec,wl-copy $(wl-paste -p)
   bind=SUPER CTRL, P, exec,  cliphist list | fuzzel -d -I -l 7 -x 8 -y 7 -P 9 -w 50 -b ede3e7d9 -r 3 -t 8b614db3 -C ede3e7d9 -f 'FiraCode Nerd Font:style=Regular:size=15' -P 10 -B 7 | cliphist decode | wl-copy
 
   bind=SUPERCTRL,R,exec,${screen-recorder-toggle}

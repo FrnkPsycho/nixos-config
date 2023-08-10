@@ -243,7 +243,10 @@
   };
 
   programs = {
-    
+    swaylock = {
+      enable = true;
+      package = pkgs.swaylock-effects;
+    };
     vscode = {
       enable = true;
       package = pkgs.vscode.fhs;

@@ -40,6 +40,14 @@
   #};
 
   services = {
+    logind = {
+      powerKey = "suspend"; # let hyprland handles powerKey
+    };
+    vsftpd = {
+      enable = true;
+      localRoot = "/tmp/vm_share";
+      writeEnable = true;
+    };
     greetd = {
       enable = true;
       settings = {

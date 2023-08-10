@@ -1,5 +1,6 @@
 monitor=HDMI-A-1,3840x2160@60,auto,1
 monitor=eDP-1,1920x1080@165,1920x2160,1
+#monitor=eDP-1,1920x1080@165,auto,1
 workspace=1,monitor:HDMI-A-1,default:true
 workspace=9,monitor:eDP-1,default:true
 # monitor=VGA-1,transform,1
@@ -13,11 +14,15 @@ input {
     follow_mouse=1
     force_no_accel=1
     touchpad {
-      natural_scroll=1
+      natural_scroll = true
+      middle_button_emulation = true
     }
-
     sensitivity = 0
 }
+gestures {
+    workspace_swipe = true
+}
+
 general {
     cursor_inactive_timeout=30
     gaps_in=2
@@ -48,10 +53,16 @@ master {
 decoration {
     # See https://wiki.hyprland.org/Configuring/Variables/ for more
     rounding = 8
-    blur = true
-    blur_size = 4
-    blur_passes = 3
-    blur_new_optimizations = true
+    blur {
+        enabled = true
+        size = 4
+        passes = 2
+        new_optimizations = true
+    }
+    #blur = true
+    #blur_size = 4
+    #blur_passes = 3
+    #blur_new_optimizations = true
 
     drop_shadow = false
     shadow_range = 4
@@ -82,6 +93,10 @@ animations {
     animation = workspaces, 1, 2, default
 }
 
+binds {
+    allow_workspace_cycles = true
+}
+
 bind=SUPER,Q,killactive,
 # bind=SUPERSHIFT,E,exec,pkill Hyprland
 bind=SUPER,E,togglegroup
@@ -91,6 +106,7 @@ bind=SUPER,Space,togglefloating,
 bind=SUPER,P,pseudo,
 bind=SUPERCTRL,L,exec,swaylock
 bind=ALT,Tab,cyclenext
+bind=SUPER,Tab,workspace,previous
 # bindm=mouse:275,mouse:272,movewindow
 # bindm=mouse:275,mouse:273,resizewindow
 bindm=SUPER,mouse:272,movewindow
@@ -174,14 +190,14 @@ binde=,j,resizeactive,0 15
 bind=,escape,submap,reset 
 submap=reset
 
-bind=CTRL SHIFT, left, resizeactive,-15 0
-bind=CTRL SHIFT, right, resizeactive,15 0
-bind=CTRL SHIFT, up, resizeactive,0 -15
-bind=CTRL SHIFT, down, resizeactive,0 15
-bind=CTRL SHIFT, l, resizeactive, 15 0
-bind=CTRL SHIFT, h, resizeactive,-15 0
-bind=CTRL SHIFT, k, resizeactive, 0 -15
-bind=CTRL SHIFT, j, resizeactive, 0 15
+#bind=CTRL SHIFT, left, resizeactive,-15 0
+#bind=CTRL SHIFT, right, resizeactive,15 0
+#bind=CTRL SHIFT, up, resizeactive,0 -15
+#bind=CTRL SHIFT, down, resizeactive,0 15
+#bind=CTRL SHIFT, l, resizeactive, 15 0
+#bind=CTRL SHIFT, h, resizeactive,-15 0
+#bind=CTRL SHIFT, k, resizeactive, 0 -15
+#bind=CTRL SHIFT, j, resizeactive, 0 15
 
 
 # firefox Picture-in-Picture
@@ -214,10 +230,18 @@ windowrule=noanim,^(jetbrains)(.*)$
 windowrulev2=nofocus,class:^(jetbrains)(.*)$,title:^(win)(.*)$
 
 # steam proton/native app
-windowrule=noanim,^(steam_app)(.*)$
+# windowrule=noanim,^(steam_app)(.*)$
 
-windowrule=float,file-roller
-windowrule=float,nautilus
+# proton / wine app
+windowrulev2 = noanim,class:^(steam_app)(.*)$
+windowrulev2 = forceinput,class:^(steam_app)(.*)$
+windowrulev2 = float,class:^(steam_app)(.*)$
+#windowrulev2 = nomaxsize,class:^(steam_app)(.*)$
+windowrulev2 = noanim,class:^(ableton live 11 suite.exe)$
+#windowrulev2 = fullscreen,class:^(ableton live 11 suite.exe)$
+
+windowrulev2=float,class:^(file-roller)$
+windowrulev2=float,class:^(org.gnome.Nautilus)$
 
 windowrule=float,imv
 windowrule=move 25%-,imv
@@ -253,7 +277,7 @@ windowrule=size 960 540,ncmpcpp
 windowrule=rounding 0,MATLAB R2022b - academic use
 windowrule=noborder, ^(grim)$
 windowrule=noborder, ^(slurp)$
-windowrulev2=animation fade,class:org.telegram.desktop,title:Media viewer
-windowrulev2=float,class:org.telegram.desktop,title:Media viewer
+windowrulev2=animation fade,class:org.telegram.desktop,title:媒体查看器
+windowrulev2=float,class:org.telegram.desktop,title:媒体查看器
 # layerrule = blur, notifications
 layerrule = noanim,selection

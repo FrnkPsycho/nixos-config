@@ -11,6 +11,7 @@ let
       "electron-21.4.0"
       "openssl-1.1.1t"
       "openssl-1.1.1u"
+      "openssl-1.1.1v"
     ];
     overlays = [
       (final: prev: {

@@ -36,7 +36,7 @@
       swc = "sudo nixos-rebuild switch";
       swcv = "sudo nixos-rebuild switch --verbose";
       sduo = "sudo";
-      n = "neovide";
+      # n = "neovide";
       off = "poweroff";
       proxy = "proxychains4 -f /home/riro/.config/proxychains/proxychains.conf";
       roll = "xrandr -o left && feh --bg-scale /home/riro/Pictures/Wallpapers/95448248_p0.png && sleep 0.5; picom --experimental-backend -b";

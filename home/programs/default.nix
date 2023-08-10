@@ -2,7 +2,7 @@
   ./helix
   ./waybar
   ./fish
-  ./sway
+  # ./sway
   ./chrome
   ./kitty.nix
   ./starship.nix

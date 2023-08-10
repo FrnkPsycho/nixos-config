@@ -27,6 +27,7 @@
       "/home/${user}/.npm-packages/bin"
       "/home/frnks/opt/riscv/bin"
       "/home/frnks/opt/riscv/riscv64-unknown-elf/bin"
+      "/home/frnks/Security/CTFTools/bin"
     ];
   };
 
