@@ -1,0 +1,6 @@
+[
+  ./clash-m
+  ./pipewire
+]
+
+
