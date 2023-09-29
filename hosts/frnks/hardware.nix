@@ -11,8 +11,16 @@
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" "vfio-pci" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelModules = [ "kvm-amd" ];
-  # boot.kernelParams = [ "amd_iommu=on" "pcie_aspm=off"];
+  boot.kernelModules = [ 
+    "kvm-amd" 
+    #"amdgpu" 
+  ];
+  boot.kernelParams = [ 
+    #"amd_iommu=on" 
+    #"pcie_aspm=off" 
+    #"video=eDP-1:1920x1080@165"
+    #"video=HDMI-A-1:3840x2160@60"
+  ];
   boot.extraModulePackages = [];
   boot.loader.timeout = 3;
 
@@ -64,11 +72,24 @@
       nvidia = {
         package = config.boot.kernelPackages.nvidiaPackages.stable;
         open = false;
-        nvidiaPersistenced = true;
+        nvidiaPersistenced = false;
         modesetting.enable = true;
-        powerManagement.enable = true;
-        nvidiaSettings = true;
+        powerManagement = {
+          enable = true;
+          #finegrained = true;
+        };
+        #dynamicBoost.enable = true;
+        #nvidiaSettings = true;
         #forceFullCompositionPipeline = true;
+        #prime = {
+          #nvidiaBusId = "PCI:1:0:0";
+          #amdgpuBusId = "PCI:6:0:0";
+          #reverseSync.enable = true;
+          #offload = {
+          #  enable = true;
+          #  enableOffloadCmd = true;
+          #};
+        #};
       };
 
       opengl = {
@@ -83,6 +104,7 @@
       openrazer.enable = true;
       bluetooth.enable = true;
       pulseaudio.enable = false;
+      #xpadneo.enable = true;
       
   };
 

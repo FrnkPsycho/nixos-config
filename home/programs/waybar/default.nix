@@ -21,7 +21,7 @@
           position = "top";
           height = 28;
           spacing = 4;
-          modules-left = [ "hyprland/submap" "wlr/workspaces" "hyprland/window"];
+          modules-left = [ "hyprland/submap" "hyprland/workspaces" "hyprland/window"];
           
           modules-center = [ "clock" ];
           
@@ -48,7 +48,7 @@
             };
           };
 
-          "wlr/workspaces" = {
+          "hyprland/workspaces" = {
            format = "{icon}";
            on-click = "activate";
            on-scroll-up = "hyprctl dispatch workspace m-1 > /dev/null";

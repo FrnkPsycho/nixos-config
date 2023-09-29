@@ -26,6 +26,8 @@
   nixpkgs.config.allowUnfree = true;
   virtualisation = {
     docker.enable = true;
+    spiceUSBRedirection.enable = true;
+    waydroid.enable = true;
     libvirtd = {
       enable = true;
     };
@@ -90,6 +92,7 @@
           "CascadiaCode"
         ];
       })
+      lxgw-neoxihei
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
@@ -113,9 +116,9 @@
         lcdfilter = "light";
       };
       defaultFonts = {
-        serif = [ "Glow Sans SC" "Glow Sans TC" "Glow Sans J" "Noto Serif" "Noto Serif CJK SC" "Noto Serif CJK TC" "Noto Serif CJK JP" ];
+        serif = [ "Noto Serif CJK SC" "Noto Serif" "Noto Serif CJK TC" "Noto Serif CJK JP" "Glow Sans SC" "Glow Sans TC" "Glow Sans J" ];
         monospace = [ "SF Mono" ];
-        sansSerif = [ "Glow Sans SC" "Glow Sans TC" "Glow Sans J" "SF Pro Text" ];
+        sansSerif = [ "Noto Sans CJK SC" "Noto Sans" "Noto Sans CJK TC" "Noto Sans CJK JP" "Glow Sans SC" "Glow Sans TC" "Glow Sans J" "SF Pro Text" ];
         emoji = [ "twemoji-color-font" "noto-fonts-emoji" ];
       };
     };

@@ -42,11 +42,11 @@
       roll = "xrandr -o left && feh --bg-scale /home/riro/Pictures/Wallpapers/95448248_p0.png && sleep 0.5; picom --experimental-backend -b";
       rolln = "xrandr -o normal && feh --bg-scale /home/riro/Pictures/Wallpapers/秋の旅.jpg && sleep 0.5;  picom --experimental-backend -b";
       cat = "bat";
-      kls = "exa";
-      sl = "exa";
-      ls = "exa";
-      l = "exa -l";
-      la = "exa -la";
+      kls = "eza";
+      sl = "eza";
+      ls = "eza";
+      l = "eza -l";
+      la = "eza -la";
       g = "lazygit";
     };
     shellInit = ''

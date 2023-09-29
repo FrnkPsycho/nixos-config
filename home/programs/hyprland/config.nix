@@ -35,6 +35,7 @@ builtins.readFile ./mocha + (with deps; ''
   env = GBM_BACKEND,nvidia-drm
   env = __GLX_VENDOR_LIBRARY_NAME,nvidia
   env = WLR_NO_HARDWARE_CURSORS,1
+  #env = WLR_DRM_DEVICES,/dev/dri/card0:/dev/dri/card1
   
   exec-once=mako
   exec-once=fcitx5

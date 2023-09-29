@@ -11,6 +11,27 @@
       };
     });
 
+    
+    # hyprland = prev.hyprland.overrideAttrs (old: {
+    #  src = prev.fetchFromGitHub {
+    #    owner = "hyprwm";
+    #    repo = "Hyprland";
+    #    rev = "3f09b14381e8b28dd2cc1d292763374f2d6c8484";
+    #    sha256 = "sha256-LLlL4EXxupanb3GwSMcogCCsx7WAfd7/u13QkAwyBgQ=";
+    #  };
+    # });
+
+    # wlroots = prev.wlroots.overrideAttrs (old: {
+    #   src = prev.fetchFromGitLab {
+    #     domain = "gitlab.freedesktop.org";
+    #     owner = "wlroots";
+    #     repo = "wlroots";
+    #     rev = "c2aa7fd965cb7ee8bed24f4122b720aca8f0fc1e";
+    #     hash = "sha256-4RBgIZHaVqH0m1POnfzYRzwCWxifIKH4xQ0kCn2LGkA=";
+    #   };
+    #   buildInputs = old.buildInputs ++ [ prev.hwdata prev.libdisplay-info ];
+    # });
+
     waybar = prev.waybar.overrideAttrs (old: {
       mesonFlags = old.mesonFlags ++ [ "-Dexperimental=true" ];
     });

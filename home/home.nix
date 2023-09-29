@@ -30,6 +30,7 @@
     ];
   };
 
+  
   home.packages = let
   list1 = let pkgs = import inputs.my-nur-pkgs { 
   }; in with pkgs; [
@@ -37,6 +38,8 @@
   ];
 
   list2 = with pkgs; [
+    blender
+    nicotine-plus
     #spotify
     #spicetify-cli
     gnome-console
@@ -47,7 +50,7 @@
     dolphin-emu
     # helix
     gzdoom
-    mangohud
+    #mangohud
     #goverlay
     #retroarchFull
     blockbench-electron
@@ -65,7 +68,7 @@
     nur.repos.xddxdd.svp
     audacious
     audacious-plugins
-    qq
+    #qq
     lutris
     baobab
     libreoffice-fresh
@@ -88,6 +91,7 @@
     mdbook
     nur.repos.xddxdd.wechat-uos-bin
     obsidian
+    gnome.gnome-tweaks
     gnome.nautilus
     gnome.gnome-calculator
     gnome.eog
@@ -169,9 +173,13 @@
   home.pointerCursor = {
     gtk.enable = true;
     x11.enable = true;
-    package = pkgs.nur-pkgs.Graphite-cursors; #callPackage ../modules/packs/Graphite-cursors { };
-    name = "Graphite-light-nord";
-    size = 18;
+    # package = pkgs.nur-pkgs.Graphite-cursors; #callPackage ../modules/packs/Graphite-cursors { };
+    # package = pkgs.catppuccin-cursors.latteLight;
+    package = pkgs.phinger-cursors;
+    #name = "Graphite-light-nord";
+    #name = "Catppuccin-Latte-Light-Cursors";
+    name = "phinger-cursors-light";
+    size = 48;
   };
 
   #systemd.services = {
@@ -195,6 +203,27 @@
   };
 
   xdg.desktopEntries = {
+    godot4 = {
+      name = "Godot Engine 4 /w IME";
+      exec = "godot4 --enable-wayland-ime";
+      icon = "godot4";
+    };
+    qq = {
+      name = "QQ";
+      exec = "env -u WAYLAND_DISPLAY qq --force-device-scale-factor=2";
+      icon = "qq";
+    };
+    audacious = {
+      name = "Audacious HiDPI";
+      exec = "env QT_ENABLE_HIGHDPI_SCALING=1 audacious";
+      icon = "audacious";
+    };
+    nautilus = {
+      name = "Nautilus";
+      exec = "env GTK_THEME=Orchis-Grey-Dark nautilus";
+      icon = "nautilus";
+      mimeType = [ "inode/directory" ];
+    };
     vscode = {
       name = "Visual Studio Code /w IME";
       exec = "code --enable-wayland-ime %F";
@@ -246,13 +275,24 @@
   };
 
   programs = {
+    mangohud = {
+        enable = true;
+        settings = {
+        preset = 3;
+      };
+    };
     swaylock = {
       enable = true;
       package = pkgs.swaylock-effects;
     };
     vscode = {
       enable = true;
-      package = pkgs.vscode.fhs;
+      package = pkgs.vscode;
+      extensions = with pkgs.vscode-extensions; [
+        ms-python.vscode-pylance
+        ms-python.python
+        yzhang.markdown-all-in-one
+  ];
     };
     
     git = {
@@ -271,11 +311,11 @@
         roll = "xrandr -o left && feh --bg-scale /home/riro/Pictures/Wallpapers/95448248_p0.png && sleep 0.5; picom --experimental-backend -b";
         rolln = "xrandr -o normal && feh --bg-scale /home/riro/Pictures/Wallpapers/秋の旅.jpg && sleep 0.5;  picom --experimental-backend -b";
         cat = "bat";
-        kls = "exa";
-        sl = "exa";
-        ls = "exa";
-        l = "exa -l";
-        la = "exa -la";
+        kls = "eza";
+        sl = "eza";
+        ls = "eza";
+        l = "eza -l";
+        la = "eza -la";
         g = "lazygit";
       };
       history = {
@@ -387,13 +427,13 @@
   gtk = {
     enable = true;
     theme = {
-      package = pkgs.materia-theme;
-      name = "Adwaita";
+      package = pkgs.orchis-theme;
+      name = "Orchis-Dark";
     };
 
     iconTheme = {
       package = pkgs.papirus-icon-theme;
-      name = "Papirus-Light";
+      name = "Papirus-Dark";
     };
   };
 

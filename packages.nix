@@ -6,6 +6,13 @@
   environment.systemPackages = with pkgs; [
     # blueman
     #samba
+    #vscode-fhs
+    qq
+    aapt
+    quark-engine
+    libsForQt5.kdeconnect-kde
+    godot_4
+    perf-tools
     fuse
     scanmem
     looking-glass-client
@@ -94,7 +101,7 @@
     autoconf automake curl libmpc mpfr gmp gawk bison flex texinfo gperf libtool patchutils bc expat gnum4
     
     openal
-    qt6.full
+    # qt6.full
     # qt5.full
     zlib.dev
     zlib
@@ -177,7 +184,8 @@
     ranger
     w3m
 
-    exa
+    #exa
+    eza
     clash
 
     bat
@@ -255,6 +263,10 @@
   [
     ( python310.withPackages (p: with p;[
           #uncompyle6
+          angr
+          parse
+          tqdm
+          inquirerpy
           minidump
           pygobject3
           pyperclip

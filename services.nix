@@ -77,19 +77,20 @@
     };
     xserver = {
       enable = true;
+      libinput.enable = true;
       layout = "us";
       xkbOptions = "eurosign:e";
       videoDrivers = [ "nvidia" ];
       desktopManager.gnome = {
         enable = false;
-        extraGSettingsOverrides = ''
-          [com.github.stunkymonkey.nautilus-open-any-terminal]
-          terminal=kitty
-        '';
-        extraGSettingsOverridePackages = [
-          #pkgs.gnome.mutter
-          pkgs.nautilus-open-any-terminal
-        ];
+        #extraGSettingsOverrides = ''
+        #  [com.github.stunkymonkey.nautilus-open-any-terminal]
+        #  terminal=kitty
+        #'';
+        #extraGSettingsOverridePackages = [
+        #  #pkgs.gnome.mutter
+        #  pkgs.nautilus-open-any-terminal
+        #];
       };
       displayManager.gdm = {
         enable = true;

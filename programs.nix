@@ -1,7 +1,9 @@
 { config
 , pkgs
+, inputs
 , lib
 , user
+, system
 , ...
 }:
 
@@ -13,7 +15,6 @@
         # waybar.enable = true;
         xwayland.enable = true;
         gamemode.enable = true;
-        gamescope.enable = true;
         fish.enable = true;
         dconf.enable = true;
 	command-not-found.enable = true;
@@ -25,13 +26,21 @@
 	    enableBashIntegration = true;
 	};
 
+        gamescope = {
+            enable = true;
+            capSysNice = false;
+        };
+
         hyprland = {
             enable = true;
+            package = (import inputs.nixpkgs-wlroots {
+               system = "x86_64-linux";
+            }).pkgs.hyprland;
             xwayland = {
-                hidpi = true;
+                # hidpi = true;
                 enable = true;
             };
-            nvidiaPatches = true;
+            # enableNvidiaPatches = true;
         };
 
         steam = {
