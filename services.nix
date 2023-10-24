@@ -62,7 +62,7 @@
       writeEnable = true;
     };
     greetd = {
-      enable = false;
+      enable = true;
       settings = {
         default_session = {
           command =
@@ -93,7 +93,7 @@
         #];
       };
       displayManager.gdm = {
-        enable = true;
+        enable = false;
         wayland = true;
       };
     };

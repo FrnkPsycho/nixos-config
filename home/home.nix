@@ -38,6 +38,7 @@
   ];
 
   list2 = with pkgs; [
+    pinta
     blender
     nicotine-plus
     #spotify
@@ -61,7 +62,7 @@
     # scanmem
     #autokey
     qbittorrent
-    wpsoffice
+    #wpsoffice
     iaito
     picard
     nur.repos.xddxdd.baidupcs-go
@@ -71,7 +72,7 @@
     #qq
     lutris
     baobab
-    libreoffice-fresh
+    #libreoffice-fresh
     prismlauncher
     minder
     mpv
@@ -122,7 +123,7 @@
 
     btop
     smartmontools
-    wireshark-qt
+    #wireshark-qt
     wezterm
     android-tools
     tor-browser-bundle-bin
@@ -179,7 +180,7 @@
     #name = "Graphite-light-nord";
     #name = "Catppuccin-Latte-Light-Cursors";
     name = "phinger-cursors-light";
-    size = 48;
+    #size = 48;
   };
 
   #systemd.services = {

@@ -13,7 +13,8 @@
     # _JAVA_AWT_WM_NONREPARENTING = "1";  
     # STEAM_FORCE_DESKTOPUI_SCALING = "2.0";
     #XWAYLAND_NO_GLAMOR="1";
-    
+
+    XCURSOR_SIZE = "32";
     GTK_THEME = "Orchis-Dark";
     # SDL_IM_MODULE = "fcitx";
     NEOVIDE_MULTIGRID = "1";
@@ -36,7 +37,8 @@
     QT_QPA_PLATFORM = "wayland;xcb";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
     QT_AUTO_SCREEN_SCALE_FACTOR = "1";
-    QT_SCALE_FACTOR = "1.5";
+    QT_SCALE_FACTOR = "1";
+    #QT_STYLE_OVERRIDE = "qt6ct-style";
     _JAVA_OPTIONS = "-Dawt.useSystemAAFontSettings=on";
     QT_ENABLE_HIGHDPI_SCALING = "1";        
     CLUTTER_BACKEND = "wayland";

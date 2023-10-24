@@ -39,8 +39,8 @@ builtins.readFile ./mocha + (with deps; ''
   
   exec-once=mako
   exec-once=fcitx5
-  exec-once=firefox
-  exec-once=telegram-desktop
+  #exec-once=firefox
+  #exec-once=telegram-desktop
   exec-once=udiskie &
   # rt
   

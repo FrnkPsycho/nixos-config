@@ -7,6 +7,12 @@
     # blueman
     #samba
     #vscode-fhs
+    swayidle
+    python311
+    krita
+    # hyprland
+    libreoffice-qt
+    wpsoffice
     qq
     aapt
     quark-engine
@@ -40,7 +46,7 @@
     slurp
   
     # kanshi
-    qt5.qtwayland
+    # qt5.qtwayland
     # sdkmanager
     android-tools
     php81
@@ -101,8 +107,8 @@
     autoconf automake curl libmpc mpfr gmp gawk bison flex texinfo gperf libtool patchutils bc expat gnum4
     
     openal
-    # qt6.full
-    # qt5.full
+    #qt6.full
+    #qt5.full
     zlib.dev
     zlib
     vistafonts-chs
@@ -261,8 +267,9 @@
    ) 
    ++
   [
-    ( python310.withPackages (p: with p;[
+    ( python311.withPackages (p: with p;[
           #uncompyle6
+          scapy
           angr
           parse
           tqdm

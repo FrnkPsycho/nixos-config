@@ -14,6 +14,12 @@ let
       "openssl-1.1.1v"
       "openssl-1.1.1w"
     ];
+    config.chromium.commandLineArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland";
+    # config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    #   "steam"
+    #   "steam-original"
+    #   "steam-runtime"
+    # ];
     overlays = [
       (final: prev: {
         nur-pkgs = inputs.nur-pkgs.packages."${prev.system}";

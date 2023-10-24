@@ -21,6 +21,7 @@
         "openrazer"
         "adbusers"
         "video"
+        "wireshark"
       ]; # Enable ‘sudo’ for the user.
       shell = pkgs.fish;
 
